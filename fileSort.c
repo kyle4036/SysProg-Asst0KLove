@@ -22,15 +22,18 @@ int main(int argc,char* argv){
   llChar charList;
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
-  printf
   charList = pushChar('a', charList);
   printf("character a :: %c ::\n",charList.data);
+  printf("next char :: %c :: \n", (*charList.next).data);
   charList = pushChar('b', charList);
   printf("character b :: %c ::\n",charList.data);
+  printf("next char :: %c :: \n", (*charList.next).data);
   charList = pushChar('c', charList);
   printf("character c :: %c ::\n",charList.data);
+  printf("next char :: %c :: \n", (*charList.next).data);
   charList = pushChar('d', charList);
   printf("character d :: %c ::\n",charList.data);
+  printf("next char :: %c :: \n", (*charList.next).data);
 
   return 0;
 }
