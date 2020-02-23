@@ -94,7 +94,7 @@ llChar* pushChar(char c, llChar charList){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
   newNode->data = c;
-  charList->next = newNode;
+  charList.next = newNode;
   return newNode;
 }
 //pushPntr()
