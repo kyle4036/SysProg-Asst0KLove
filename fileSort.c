@@ -19,8 +19,8 @@ llPntr pushPntr(void* p, llPntr pntrList);
 
 int main(int argc,char* argv){
 
-//this is all temporary for testing purposes
 
+//this is all temporary for testing purposes
   llChar charList;
   //llChar* chPntList;
   charList.data = '0';
@@ -89,12 +89,12 @@ void* load(const char* pathname){
 //pushChar()
 //each time you push an element onto the stack
 //the new element becomes the new head of the stack
-
+//for some reason I can't create new nodes. uh oh
 llChar* pushChar(char c, llChar charList){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
   newNode->data = c;
-  newNode->next = &charList;
+  charList->next = newNode;
   return newNode;
 }
 //pushPntr()
