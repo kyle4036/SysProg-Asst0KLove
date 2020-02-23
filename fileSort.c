@@ -7,10 +7,15 @@
 #include <fcntl.h>
 #include <errno.h>
 
+//linked lists for characters and pointers
 typedef struct llChar_{char data; struct llChar_* next} llChar;
-typedef struct llPntr_{char data; struct llPntr_* next} llPntr;
+typedef struct llPntr_{void* data; struct llPntr_* next} llPntr;
+
 
 void* load(const char* pathname);
+
+void pushChar(char c, llChar charList);
+void pushPntr(void* p, llPntr pntrList);
 
 int main(int argc,char* argv){
 
@@ -26,23 +31,35 @@ void* load(const char* pathname){
     switch(errno){
       case EACCES:  printf("File does not exist!"); exit(1);
       case EOVERFLOW: printf("File is to large!"); exit(1);
-      default : printf("Kernal or program error."); exit(1);
+      default : printf("Kernel or program error."); exit(1);
     }
   }
 
-  int count;
-  char temp;
+  int count=1;
+  char charTemp;
+  llChar charList;
 
-  count = read(fd,&temp,sizeof(char));
-  if(count == -1){
-    printf("Cannot Read File: ");
-    switch(errno){
-      case EINVAL: printf(" Unsuitable for reading."); exit(1);
-      default : printf("Kernal or program error."); exit(1);
+  while(count != 0){//load in all the data into linked lists
+    count = read(fd,&temp,sizeof(char));
+    if(count == -1){
+      printf("Cannot Read File: ");
+      switch(errno){
+        case EINVAL: printf("Unsuitable for reading."); exit(1);
+        default : printf("Kernel or program error."); exit(1);
+      }
+    }
+    else if(temp == ','){
+
     }
   }
 
 
   close(fd);
   return data;
+}
+void pushChar(char c, llChar charList){
+  
+}
+void pushPntr(char c, llPntr pntrList){
+
 }
