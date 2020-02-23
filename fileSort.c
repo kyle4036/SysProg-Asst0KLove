@@ -14,7 +14,7 @@ typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 void* load(const char* pathname);
 
-llChar pushChar(char c, llChar charList);
+llChar* pushChar(char c, llChar charList);
 llPntr pushPntr(void* p, llPntr pntrList);
 
 int main(int argc,char* argv){
@@ -22,6 +22,7 @@ int main(int argc,char* argv){
 //this is all temporary for testing purposes
 
   llChar charList;
+  llChar* chPntList;
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
   charList = pushChar('a', charList);
@@ -89,7 +90,7 @@ void* load(const char* pathname){
 //each time you push an element onto the stack
 //the new element becomes the new head of the stack
 
-llChar pushChar(char c, llChar charList){
+llChar* pushChar(char c, llChar charList){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
   newNode->data = c;
