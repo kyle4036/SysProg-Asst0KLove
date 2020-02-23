@@ -8,8 +8,8 @@
 #include <errno.h>
 
 //linked lists for characters and pointers
-typedef struct llChar_{char data; struct llChar_* next} llChar;
-typedef struct llPntr_{void* data; struct llPntr_* next} llPntr;
+typedef struct llChar_{char data; struct llChar_* next;} llChar;
+typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 
 void* load(const char* pathname);
@@ -40,7 +40,7 @@ void* load(const char* pathname){
   llChar charList;
 
   while(count != 0){//load in all the data into linked lists
-    count = read(fd,&temp,sizeof(char));
+    count = read(fd,&charTemp,sizeof(char));
     if(count == -1){
       printf("Cannot Read File: ");
       switch(errno){
@@ -48,7 +48,7 @@ void* load(const char* pathname){
         default : printf("Kernel or program error."); exit(1);
       }
     }
-    else if(temp == ','){
+    else if(charTemp == ','){
 
     }
   }
@@ -57,9 +57,10 @@ void* load(const char* pathname){
   close(fd);
   return data;
 }
+
 void pushChar(char c, llChar charList){
-  
+
 }
-void pushPntr(char c, llPntr pntrList){
+void pushPntr(void* p, llPntr pntrList){
 
 }
