@@ -19,6 +19,8 @@ llPntr pushPntr(void* p, llPntr pntrList);
 
 int main(int argc,char* argv){
 
+//this is all temporary for testing purposes
+
   llChar charList;
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
@@ -87,13 +89,11 @@ void* load(const char* pathname){
 //each time you push an element onto the stack
 //the new element becomes the new head of the stack
 
-//::WARNING:: this might one day break, because I never malloc anything onto
-//the stack and I just create data from thinair. It makes sense
-//but I've been told it shouldn't work like this
 llChar pushChar(char c, llChar charList){
-  llChar newNode;
-  newNode.data = c;
-  newNode.next = &charList;
+  llChar* newNode = NULL;
+  newNode = (llChar*)malloc(sizeof(llChar));
+  *newNode.data = c;
+  *newNode.next = &charList;
   return newNode;
 }
 //pushPntr()
