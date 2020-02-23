@@ -68,7 +68,7 @@ void* load(const char* pathname){
 llChar pushChar(char c, llChar charList){
   llChar newNode;
   newNode.data = c;
-  newNode.next = charList;
+  newNode.next = &charList;
 }
 llPntr pushPntr(void* p, llPntr pntrList){
 
