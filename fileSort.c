@@ -7,8 +7,8 @@
 #include <fcntl.h>
 #include <errno.h>
 
-void* load(const char* pathname);
 Typedef struct LinkedList_{char data, Struct Node* next} LinkedList;
+void* load(const char* pathname);
 
 int main(int argc,char* argv){
 
@@ -29,6 +29,7 @@ void* load(const char* pathname){
   }
 
   int count;
+  char temp;
 
   count = read(fd,&temp,sizeof(char));
   if(count == -1){
