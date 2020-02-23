@@ -22,25 +22,21 @@ int main(int argc,char* argv){
 //this is all temporary for testing purposes
 
   llChar charList;
-  llChar* chPntList;
+  //llChar* chPntList;
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
-  chPntList = pushChar('a', charList);
-  charList = *chPntList;
+  charList = *pushChar('a', charList);
   printf("character a :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
-  chPntList = pushChar('a', charList);
-  charList = *chPntList;
+  charList = *pushChar('b', charList);
   printf("character b :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-  chPntList = pushChar('a', charList);
-  charList = *chPntList;
+  charList = *pushChar('c', charList);
   printf("character c :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-  chPntList = pushChar('a', charList);
-  charList = *chPntList;
+  charList = *pushChar('d', charList);
   printf("character d :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
