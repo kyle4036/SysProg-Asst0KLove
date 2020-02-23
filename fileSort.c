@@ -21,13 +21,13 @@ int main(int argc,char* argv){
 
   llChar charList;
   charList.data = '0';
-  printf("character 0 :: %c ::",charList.data);
+  printf("character 0 :: %c ::\n",charList.data);
   charList = pushChar('a', charList);
   charList = pushChar('b', charList);
   charList = pushChar('c', charList);
   charList = pushChar('d', charList);
 
-  printf("character d :: %c ::",charList.data);
+  printf("character d :: %c ::\n",charList.data);
 
   return 0;
 }
@@ -39,9 +39,9 @@ void* load(const char* pathname){
   if(fd == -1){//checks if the file couldn't be opened
     printf("Cannot Access File: ");
     switch(errno){
-      case EACCES:  printf("File does not exist!"); exit(1);
-      case EOVERFLOW: printf("File is to large!"); exit(1);
-      default : printf("Kernel or program error."); exit(1);
+      case EACCES:  printf("File does not exist!\n"); exit(1);
+      case EOVERFLOW: printf("File is to large!\n"); exit(1);
+      default : printf("Kernel or program error.\n"); exit(1);
     }
   }
 
@@ -57,8 +57,8 @@ void* load(const char* pathname){
     if(count == -1){
       printf("Cannot Read File: ");
       switch(errno){
-        case EINVAL: printf("Unsuitable for reading."); exit(1);
-        default : printf("Kernel or program error."); exit(1);
+        case EINVAL: printf("Unsuitable for reading.\n"); exit(1);
+        default : printf("Kernel or program error.\n"); exit(1);
       }
     }
     else if(charTemp == ' ' || charTemp == '\n' || charTemp == '\t'){
