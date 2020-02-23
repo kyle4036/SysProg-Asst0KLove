@@ -14,8 +14,8 @@ typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 void* load(const char* pathname);
 
-void pushChar(char c, llChar charList);
-void pushPntr(void* p, llPntr pntrList);
+llChar pushChar(char c, llChar charList);
+llPntr pushPntr(void* p, llPntr pntrList);
 
 int main(int argc,char* argv){
 
@@ -38,6 +38,8 @@ void* load(const char* pathname){
   int count=1;
   char charTemp;
   llChar charList;
+  charList.next = NULL;//because I am using the lists as a stack,
+                       //there will be nothing coming after the first element
 
   while(count != 0){//load in all the data into linked lists
     count = read(fd,&charTemp,sizeof(char));
@@ -47,6 +49,9 @@ void* load(const char* pathname){
         case EINVAL: printf("Unsuitable for reading."); exit(1);
         default : printf("Kernel or program error."); exit(1);
       }
+    }
+    else if(charTemp == ' ' || charTemp == '\n' || charTemp == '\t'){
+      continue;
     }
     else if(charTemp == ','){
 
@@ -58,9 +63,13 @@ void* load(const char* pathname){
   return data;
 }
 
-void pushChar(char c, llChar charList){
-
+//each time you push an element onto the stack
+//the new element becomes the new head of the stack
+llChar pushChar(char c, llChar charList){
+  llChar newNode;
+  newNode.c = c;
+  newNode.next = charList;
 }
-void pushPntr(void* p, llPntr pntrList){
+llPntr pushPntr(void* p, llPntr pntrList){
 
 }
