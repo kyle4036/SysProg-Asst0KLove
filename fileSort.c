@@ -23,7 +23,7 @@ int main(int argc,char* argv){
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
   charList = pushChar('a', charList);
-  printf("character a :: %c ::\n",(llChar)(charList.next).data);
+  printf("character a :: %c ::\n",charList.data);
   charList = pushChar('b', charList);
   printf("character b :: %c ::\n",charList.data);
   charList = pushChar('c', charList);
@@ -82,6 +82,7 @@ llChar pushChar(char c, llChar charList){
   llChar newNode;
   newNode.data = c;
   newNode.next = &charList;
+  return newNode;
 }
 llPntr pushPntr(void* p, llPntr pntrList){
 
