@@ -7,6 +7,7 @@
 #include <fcntl.h>
 
 void* load(const char* pathname);
+Typedef struct Node_{char* data, Struct Node* next} Node;
 
 int main(int argc,char* argv){
 
@@ -17,7 +18,7 @@ void* load(const char* pathname){
   int fd = open(pathname, O_RDONLY);
 
   if(fd == -1){//checks if the file couldn't be opened
-    printf("Cannot Access File: ")
+    printf("Cannot Access File: ");
     switch(errno){
       case EACCES:  printf("File does not exist!"); return 1;
       case EOVERFLOW: printf("File is to large!"); return 1;
@@ -25,7 +26,11 @@ void* load(const char* pathname){
     }
   }
 
-  char temp;
-  read(fd,&temp,sizeof(char))
-  if
+  char temp = read(fd,&temp,sizeof(char));
+  if(temp == ","){
+
+  }
+
+  close fd;
+  return data;
 }
