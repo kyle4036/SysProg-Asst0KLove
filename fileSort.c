@@ -19,6 +19,14 @@ llPntr pushPntr(void* p, llPntr pntrList);
 
 int main(int argc,char* argv){
 
+  llChar charList;
+  charList = pushChar('a', charList);
+  charList = pushChar('b', charList);
+  charList = pushChar('c', charList);
+  charList = pushChar('d', charList);
+
+  printf("%c",charList.data);
+
   return 0;
 }
 
@@ -38,6 +46,7 @@ void* load(const char* pathname){
   int count=1;
   char charTemp;
   llChar charList;
+  charList.data = '\0';
   charList.next = NULL;//because I am using the lists as a stack,
                        //there will be nothing coming after the first element
 
