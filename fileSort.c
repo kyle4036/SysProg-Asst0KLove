@@ -25,7 +25,7 @@ int main(int argc,char* argv){
   charList = pushChar('c', charList);
   charList = pushChar('d', charList);
 
-  printf("%c",charList.data);
+  printf("character d :: %c ::",charList.data);
 
   return 0;
 }
