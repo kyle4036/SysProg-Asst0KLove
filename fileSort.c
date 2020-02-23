@@ -21,6 +21,7 @@ int main(int argc,char* argv){
 
   llChar charList;
   charList.data = '0';
+  printf("character 0 :: %c ::",charList.data);
   charList = pushChar('a', charList);
   charList = pushChar('b', charList);
   charList = pushChar('c', charList);
