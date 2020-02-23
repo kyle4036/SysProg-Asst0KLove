@@ -5,9 +5,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <errno.h>
 
 void* load(const char* pathname);
-Typedef struct Node_{char* data, Struct Node* next} Node;
+Typedef struct LinkedList_{char data, Struct Node* next} LinkedList;
 
 int main(int argc,char* argv){
 
