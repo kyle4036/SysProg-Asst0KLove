@@ -20,6 +20,7 @@ llPntr pushPntr(void* p, llPntr pntrList);
 int main(int argc,char* argv){
 
   llChar charList;
+  charList.data = '0';
   charList = pushChar('a', charList);
   charList = pushChar('b', charList);
   charList = pushChar('c', charList);
