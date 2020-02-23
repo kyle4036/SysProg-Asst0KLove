@@ -16,6 +16,7 @@ int main(int argc,char* argv){
 }
 
 void* load(const char* pathname){
+  void* data;
   int fd = open(pathname, O_RDONLY);
 
   if(fd == -1){//checks if the file couldn't be opened
@@ -27,10 +28,17 @@ void* load(const char* pathname){
     }
   }
 
-  char temp = read(fd,&temp,sizeof(char));
-  if(temp == ","){
+  int count;
 
+  count = read(fd,&temp,sizeof(char));
+  if(count == -1){
+    printf("Cannot Read File: ");
+    switch(errno){
+      case EINVAL: printf(" Unsuitable for reading."); exit(1);
+      default : printf("Kernal or program error."); exit(1);
+    }
   }
+
 
   close(fd);
   return data;
