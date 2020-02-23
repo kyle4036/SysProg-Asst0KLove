@@ -21,9 +21,9 @@ void* load(const char* pathname){
   if(fd == -1){//checks if the file couldn't be opened
     printf("Cannot Access File: ");
     switch(errno){
-      case EACCES:  printf("File does not exist!"); return 1;
-      case EOVERFLOW: printf("File is to large!"); return 1;
-      default : printf("Kernal or program error."); return 1;
+      case EACCES:  printf("File does not exist!"); exit(1);
+      case EOVERFLOW: printf("File is to large!"); exit(1);
+      default : printf("Kernal or program error."); exit(1);
     }
   }
 
@@ -32,6 +32,6 @@ void* load(const char* pathname){
 
   }
 
-  close fd;
+  close(fd);
   return data;
 }
