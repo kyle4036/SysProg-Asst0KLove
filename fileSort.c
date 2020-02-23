@@ -7,7 +7,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
-Typedef struct LinkedList_{char data, Struct Node* next} LinkedList;
+typedef struct LinkedList_{char data, Struct Node* next} LinkedList;
 void* load(const char* pathname);
 
 int main(int argc,char* argv){
