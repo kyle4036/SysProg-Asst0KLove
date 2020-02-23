@@ -28,12 +28,15 @@ int main(int argc,char* argv){
   charList = pushChar('b', charList);
   printf("character b :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
+  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   charList = pushChar('c', charList);
   printf("character c :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
+  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   charList = pushChar('d', charList);
   printf("character d :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
+  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
 
   return 0;
 }
