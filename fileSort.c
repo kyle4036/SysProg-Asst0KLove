@@ -7,7 +7,8 @@
 #include <fcntl.h>
 #include <errno.h>
 
-typedef struct LinkedList_{char data, Struct Node* next} LinkedList;
+typedef struct llChar_{char data, Struct llChar_* next} llChar;
+typedef struct llPntr_{char data, Struct llPntr_* next} llPntr;
 void* load(const char* pathname);
 
 int main(int argc,char* argv){
