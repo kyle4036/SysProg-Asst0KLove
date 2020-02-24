@@ -8,8 +8,8 @@
 #include <errno.h>
 
 //linked lists for characters and pointers
-typedef struct llChar_{char data; struct llChar_* next;} llChar;
-typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
+typedef struct llChar_{char data; struct llChar_* next;struct llChar_* prev;} llChar;
+typedef struct llPntr_{void* data; struct llPntr_* next;struct llChar_* prev;} llPntr;
 
 
 void* load(const char* pathname);
@@ -27,19 +27,19 @@ int main(int argc,char* argv){
   printf("character 0 :: %c ::\n",charList.data);
   charList = *pushChar('a', charList);
   printf("character a :: %c ::\n",charList.data);
-  //printf("next char :: %c :: \n", (*charList.next).data);
+  printf("next char :: %c :: \n", (*charList.prev).data);
   charList = *pushChar('b', charList);
   printf("character b :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.next).data);
-  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
+  printf("next char :: %c :: \n", (*charList.prev).data);
+  printf("next, next char :: %c :: \n", (*(*charList.prev).prev).data);
   charList = *pushChar('c', charList);
   printf("character c :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.next).data);
-  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
+  printf("next char :: %c :: \n", (*charList.prev).data);
+  printf("next, next char :: %c :: \n", (*(*charList.prev).prev).data);
   charList = *pushChar('d', charList);
   printf("character d :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.next).data);
-  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
+  printf("next char :: %c :: \n", (*charList.prev).data);
+  printf("next, next char :: %c :: \n", (*(*charList.prev).prev).data);
 
   return 0;
 }
@@ -95,6 +95,7 @@ llChar* pushChar(char c, llChar charList){
   newNode = (llChar*)malloc(sizeof(llChar));
   newNode->data = c;
   charList.next = newNode;
+  newNode->prev = charList;
   return newNode;
 }
 //pushPntr()
