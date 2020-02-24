@@ -25,25 +25,13 @@ int main(int argc,char* argv){
   //llChar* head;
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
-  pushChar('a', *charList);
-  printf("charList address after pushChar %x\n", charList);
-  printf("character a :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.next).data);
-  pushChar('b', *charList);
-  printf("head* address after pushChar %x\n", charList);
-  printf("character b :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.next).data);
-  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-  pushChar('c', *charList);
-  printf("head* address after pushChar %x\n", charList);
-  printf("character c :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.next).data);
-  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-  pushChar('d', *charList);
-  printf("charList address after pushChar %x\n", charList);
-  printf("character d :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.next).data);
-  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
+  for(int i = 0;i < 5;i++){
+    pushChar(i+97, *charList);
+    printf("charList address after pushChar %x\n", charList);
+    printf("#%d:character %c :: %c ::\n",i,i+97,charList.data);
+    printf("next char :: %c :: \n", (*charList.next).data);
+  }
+  //printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
 
   return 0;
 }
