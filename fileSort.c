@@ -26,6 +26,7 @@ int main(int argc,char* argv){
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
   charList = *pushChar('a', charList);
+  printf("charList address after pushChar %x\n", charList);
   printf("character a :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   charList = *pushChar('b', charList);
