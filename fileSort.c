@@ -12,12 +12,20 @@ typedef struct llChar_{char data; struct llChar_* next;} llChar;
 typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 
-llPntr* load(const char* pathname);
+llPntr* load(const char* pathname);//Needs to be tested
 
 void pushChar(char c, llChar** head);
 void pushPntr(void* p, llPntr** head);
-void printCharList(llChar data);
-void printPntrList(llPntr data);
+
+void printCharList(llChar data);//Needs to be tested
+void printPntrList(llPntr data);//Needs to be tested
+
+void freeCharList(llChar* data);//<------------------------Needs to be tested
+void freePntrList(llPntr* data);//<------------------------Needs to be tested
+
+int charLen(llChar list);//Needs to be tested
+char[] cListToString(llChar list);//Needs to be tested
+void swapPntr(llPntr x, llPntr y);//Needs to be tested
 
 int main(int argc,char* argv){
 
@@ -113,18 +121,72 @@ void pushPntr(void* p, llPntr** head){
   *head = newNode;
 }
 
-void printCharList(llChar data){
-  llChar current = data;
-  while(current.data != '\0'){
-    printf("%c",current.data);
+//get the length of the character linked lists
+//note: I think that this will return 1 less than the total, but thats ok
+int charLen(llChar list){
+  llChar current = list;
+  int i = 0;
+
+  while(current.next != NULL){
+    i++;
     current = *current.next;
   }
+  return i;
+}
+
+//remember to free this data
+char* cListToString(llChar list){
+  llChar current = list;
+
+  int len = charLen(list);
+  char* s = (char*)malloc(len*sizeof(char));
+
+  int i;
+  for(i = 0;i<=len;i++){
+    s[i] = current.data;
+    current = *current.next;
+  }
+  return s;
+}
+
+void swapPntr(llPntr x, llPntr y){
+  void* temp = x.data;
+  x.data = y.data;
+  y.data = temp;
+}
+
+void freeCharList(llChar* data){
+  llChar* current = data;
+  llChar* temp = current;
+  do{
+    current = (*current).next
+    free(temp);
+    temp = current;
+  }while(curent.next != NULL)
+
+  //note: the last data object (charEnd) was instantiated at compile time,
+  //so we never need to touch it
+}
+void freePntrList(llPntr* data){
+  llPntr* current = data;
+  llPntr* temp = current;
+  do{
+    current = (*current).next
+    freeCharList( (llChar*)(*temp).data );
+    free(temp);
+    temp = current;
+  }while(curent.next != NULL)
+}
+
+void printCharList(llChar data){
+  char* cString = cListToString(data);
+  printf("%s\n",cString);
+  free(cString);
 }
 void printPntrList(llPntr data){
   llPntr current = data;
   while(current.data != NULL){
-    printCharList(current.data);
-    current = *current.next;
-    printf("\n");
+    printCharList((llChar)current.data);
+    current = *(current.next);
   }
 }
