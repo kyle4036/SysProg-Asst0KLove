@@ -30,7 +30,7 @@ void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
 
 int main(int argc,char* argv){
 
-  llPntr* data = load((const char*)argv[1]);
+  llPntr* data = load((char*)argv[1]);
 
   printPntrList(&data);
 
@@ -160,10 +160,10 @@ void freeCharList(llChar* data){
   llChar* current = data;
   llChar* temp = current;
   do{
-    current = (*current).next
+    current = (*current).next;
     free(temp);
     temp = current;
-  }while(curent.next != NULL)
+  }while(current.next != NULL);
 
   //note: the last data object (charEnd) was instantiated at compile time,
   //so we never need to touch it
@@ -172,11 +172,11 @@ void freePntrList(llPntr* data){
   llPntr* current = data;
   llPntr* temp = current;
   do{
-    current = (*current).next
+    current = (*current).next;
     freeCharList( (llChar*)(*temp).data );
     free(temp);
     temp = current;
-  }while(curent.next != NULL)
+  }while(current.next != NULL);
 }
 
 void printCharList(llChar data){
@@ -187,7 +187,7 @@ void printCharList(llChar data){
 void printPntrList(llPntr data){
   llPntr current = data;
   while(current.data != NULL){
-    printCharList((llChar)current.data);
+    printCharList(current.data);
     current = *(current.next);
   }
 }
