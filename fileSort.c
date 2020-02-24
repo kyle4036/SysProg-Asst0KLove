@@ -59,7 +59,7 @@ llPntr* load(const char* pathname){
     if(count == -1){
       printf("Cannot Read File: ");
       switch(errno){
-        case EINVAL: printf("Unsuitable for reading.\n"); exit(1);
+        case EINVAL: printf("File unsuitable for reading.\n"); exit(1);
         default : printf("Kernel or program error.\n"); exit(1);
       }
     }
@@ -124,6 +124,7 @@ void printPntrList(llPntr data){
   llPntr current = data;
   while(current.data != NULL){
     printCharList(current.data);
+    current = *current.next;
     printf("\n");
   }
 }
