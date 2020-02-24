@@ -84,9 +84,9 @@ void* load(const char* pathname){
 }
 
 //pushChar()
-//each time you push an element onto the stack
+//each time you push an element onto the stack,
 //the new element becomes the new head of the stack
-//for some reason I can't create new nodes. uh oh
+//how to use: send the address of the head of the linked list
 void pushChar(char c, llChar** head){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
@@ -97,14 +97,20 @@ void pushChar(char c, llChar** head){
   newNode->data = c;
   newNode->next = *head;
   *head = newNode;
-  printf("head address %x\n", head);
-  printf("newNode address %x\n", newNode);
+  //printf("head address %x\n", head);
+  //printf("newNode address %x\n", newNode);
 }
+
 //pushPntr()
 //same as pushChar() but with pointers
-llPntr pushPntr(void* p, llPntr pntrList){
-  llPntr newNode;
-  newNode.data = p;
-  newNode.next = &pntrList;
-  return newNode;
+llPntr pushPntr(void* p, llPntr** head){
+  llPntr* newNode = NULL;
+  newNode = (llPntr*)malloc(sizeof(llChar));
+  if(newNode == NULL){
+    printf("Couldn't malloc() space! Exiting...");
+    exit(1);
+  }
+  newNode->data = c;
+  newNode->next = *head;
+  *head = newNode;
 }
