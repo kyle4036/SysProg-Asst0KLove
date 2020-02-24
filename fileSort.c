@@ -32,6 +32,9 @@ int main(int argc,char* argv){
     printf("head address after pushChar %x\n", head);
     printf("#%d:character %c :: %c ::\n",i,i+97,(*head).data);
     printf("next char :: %c :: \n", (*(*head).next).data);
+    if(i > 1){
+      printf("next, next char :: %c :: \n", (*(*(*head).next).next).data);
+    }
   }
   //printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
 
