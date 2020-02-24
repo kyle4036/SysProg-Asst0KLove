@@ -24,7 +24,6 @@ int main(int argc,char* argv){
   llChar charList;
   //llChar* head;
   charList.data = '0';
-  //head = *charList;
   printf("character 0 :: %c ::\n",charList.data);
   pushChar('a', *charList);
   printf("charList address after pushChar %x\n", charList);
