@@ -107,8 +107,8 @@ void pushPntr(void* p, llPntr** head){
 void printCharList(llChar data){
   llChar current = data;
   while(current.data != '\0'){
-    printf("%c",current.data)
-    current = *current.next;
+    printf("%c",current.data);
+    current = current.next;
   }
 }
 void printPntrList(llPntr data){
