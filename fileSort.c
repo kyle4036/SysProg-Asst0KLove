@@ -32,7 +32,7 @@ int main(int argc,char* argv){
 
   llPntr* data = load((char*)argv[1]);
 
-  printPntrList(&data);
+  printPntrList(*data);
 
   return 0;
 }
@@ -128,7 +128,7 @@ int charLen(llChar list){
   llChar current = list;
   int i = 0;
 
-  while(current.next != NULL){
+  while((*current).next != NULL){
     i++;
     current = *current.next;
   }
@@ -163,7 +163,7 @@ void freeCharList(llChar* data){
     current = (*current).next;
     free(temp);
     temp = current;
-  }while(current.next != NULL);
+  }while((*current).next != NULL);
 
   //note: the last data object (charEnd) was instantiated at compile time,
   //so we never need to touch it
@@ -176,7 +176,7 @@ void freePntrList(llPntr* data){
     freeCharList( (llChar*)(*temp).data );
     free(temp);
     temp = current;
-  }while(current.next != NULL);
+  }while((*current).next != NULL);
 }
 
 void printCharList(llChar data){
@@ -186,7 +186,7 @@ void printCharList(llChar data){
 }
 void printPntrList(llPntr data){
   llPntr current = data;
-  while(current.data != NULL){
+  while((*current).data != NULL){
     printCharList(current.data);
     current = *(current.next);
   }
