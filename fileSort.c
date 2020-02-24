@@ -8,8 +8,8 @@
 #include <errno.h>
 
 //linked lists for characters and pointers
-typedef struct llChar_{char data; struct llChar_* next;struct llChar_* prev;} llChar;
-typedef struct llPntr_{void* data; struct llPntr_* next;struct llChar_* prev;} llPntr;
+typedef struct llChar_{char data; struct llChar_* next;} llChar;
+typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 
 void* load(const char* pathname);
@@ -110,7 +110,7 @@ llPntr pushPntr(void* p, llPntr** head){
     printf("Couldn't malloc() space! Exiting...");
     exit(1);
   }
-  newNode->data = c;
+  newNode->data = p;
   newNode->next = *head;
   *head = newNode;
 }
