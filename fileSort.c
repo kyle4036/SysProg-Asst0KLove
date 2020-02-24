@@ -21,6 +21,10 @@ void printPntrList(llPntr data);
 
 int main(int argc,char* argv){
 
+  llPntr* data = load(argv[1]);
+
+  printPntrList(&data);
+
   return 0;
 }
 
@@ -117,5 +121,9 @@ void printCharList(llChar data){
   }
 }
 void printPntrList(llPntr data){
-
+  llPntr current = data;
+  while(current.data != NULL){
+    printCharList(current.data);
+    printf("\n");
+  }
 }
