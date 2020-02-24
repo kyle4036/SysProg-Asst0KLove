@@ -22,15 +22,15 @@ int main(int argc,char* argv){
 
 //this is all temporary for testing purposes
   llChar charList;
-  //llChar* head;
+  llChar* head;
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
   int i;
   for(i = 0;i < 5;i++){
-    pushChar(i+97, *charList);
-    printf("charList address after pushChar %x\n", charList);
-    printf("#%d:character %c :: %c ::\n",i,i+97,charList.data);
-    printf("next char :: %c :: \n", (*charList.next).data);
+    pushChar(i+97, *head);
+    printf("head address after pushChar %x\n", head);
+    printf("#%d:character %c :: %c ::\n",i,i+97,*head.data);
+    printf("next char :: %c :: \n", (*(*head).next).data);
   }
   //printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
 
