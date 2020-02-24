@@ -43,7 +43,7 @@ llPntr load(const char* pathname){
   charList.data = '\0';
   charList.next = NULL;//because I am using the lists as a stack,
                        //there will be nothing coming after the first element
-  llChar* head = &charList;
+  llChar* cHead = &charList;
 
   while(count != 0){//load in all the data into linked lists
     count = read(fd,&charTemp,sizeof(char));
@@ -58,7 +58,7 @@ llPntr load(const char* pathname){
       continue;//throws out any garbage data
     }
     else if(charTemp == ','){
-      pushPntr(&head, data);
+      pushPntr(&head, &data);
       head = &charList;//reset the head to be the string terminator
                        //makes it so that all data pointers end with the same llChar struct
     }
