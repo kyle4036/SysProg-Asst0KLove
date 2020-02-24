@@ -12,20 +12,21 @@ typedef struct llChar_{char data; struct llChar_* next;} llChar;
 typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 
-llPntr* load(const char* pathname);//Needs to be tested
+llPntr* load(const char* pathname);//Needs to be tested (1) 
+                                   //(might need to test everything else first)
 
 void pushChar(char c, llChar** head);
 void pushPntr(void* p, llPntr** head);
 
-void printCharList(llChar data);//Needs to be tested
-void printPntrList(llPntr data);//Needs to be tested
+void printCharList(llChar data);//Needs to be tested (5)
+void printPntrList(llPntr data);//Needs to be tested (6)
 
-void freeCharList(llChar* data);//<------------------------Needs to be tested
-void freePntrList(llPntr* data);//<------------------------Needs to be tested
+void freeCharList(llChar* data);//Needs to be tested (7)
+void freePntrList(llPntr* data);//Needs to be tested (8)
 
-int charLen(llChar list);//Needs to be tested
-char[] cListToString(llChar list);//Needs to be tested
-void swapPntr(llPntr x, llPntr y);//Needs to be tested
+int charLen(llChar list);//Needs to be tested (2)
+char[] cListToString(llChar list);//Needs to be tested (3)
+void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
 
 int main(int argc,char* argv){
 
