@@ -1,4 +1,4 @@
-#include <stdio.h>
+head*#include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
@@ -27,21 +27,21 @@ int main(int argc,char* argv){
   head = &charList;
   printf("character 0 :: %c ::\n",charList.data);
   head = pushChar('a', *head);
-  printf("charList address after pushChar %x\n", charList);
+  printf("head* address after pushChar %x\n", *head);
   printf("character a :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   head = pushChar('a', *head);
-  printf("charList address after pushChar %x\n", charList);
+  printf("head* address after pushChar %x\n", *head);
   printf("character b :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   head = pushChar('a', *head);
-  printf("charList address after pushChar %x\n", charList);
+  printf("head* address after pushChar %x\n", *head);
   printf("character c :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   head = pushChar('a', *head);
-  printf("charList address after pushChar %x\n", charList);
+  printf("charList address after pushChar %x\n", *head);
   printf("character d :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
