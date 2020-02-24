@@ -93,7 +93,7 @@ void pushChar(char c, llChar** head){
   newNode->data = c;
   newNode->next = *head;
   *head = newNode;
-  printf("charList address %x\n", charList);
+  printf("head address %x\n", head);
   printf("newNode address %x\n", newNode);
 }
 //pushPntr()
