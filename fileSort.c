@@ -92,7 +92,7 @@ void pushChar(char c, llChar** head){
 //same as pushChar() but with pointers
 void pushPntr(void* p, llPntr** head){
   llPntr* newNode = NULL;
-  newNode = (llPntr*)malloc(sizeof(llChar));
+  newNode = (llPntr*)malloc(sizeof(llPntr));
   if(newNode == NULL){
     printf("Couldn't malloc() space! Exiting...");
     exit(1);
