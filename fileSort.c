@@ -27,19 +27,19 @@ int main(int argc,char* argv){
   printf("character 0 :: %c ::\n",charList.data);
   charList = *pushChar('a', charList);
   printf("character a :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.prev).data);
+  //printf("next char :: %c :: \n", (*charList.next).data);
   charList = *pushChar('b', charList);
   printf("character b :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.prev).data);
-  printf("next, next char :: %c :: \n", (*(*charList.prev).prev).data);
+  printf("next char :: %c :: \n", (*charList.next).data);
+  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   charList = *pushChar('c', charList);
   printf("character c :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.prev).data);
-  printf("next, next char :: %c :: \n", (*(*charList.prev).prev).data);
+  printf("next char :: %c :: \n", (*charList.next).data);
+  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   charList = *pushChar('d', charList);
   printf("character d :: %c ::\n",charList.data);
-  printf("next char :: %c :: \n", (*charList.prev).data);
-  printf("next, next char :: %c :: \n", (*(*charList.prev).prev).data);
+  printf("next char :: %c :: \n", (*charList.next).data);
+  printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
 
   return 0;
 }
@@ -94,8 +94,7 @@ llChar* pushChar(char c, llChar charList){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
   newNode->data = c;
-  charList.next = newNode;
-  newNode->prev = &charList;
+  newNode->next = *charList;
   return newNode;
 }
 //pushPntr()
