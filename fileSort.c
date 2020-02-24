@@ -22,26 +22,26 @@ int main(int argc,char* argv){
 
 //this is all temporary for testing purposes
   llChar charList;
-  llChar* head;
+  //llChar* head;
   charList.data = '0';
-  head = &charList;
+  //head = &charList;
   printf("character 0 :: %c ::\n",charList.data);
-  head = pushChar('a', *head);
-  printf("head* address after pushChar %x\n", *head);
+  pushChar('a', &charList);
+  printf("charList address after pushChar %x\n", charList);
   printf("character a :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
-  head = pushChar('a', *head);
-  printf("head* address after pushChar %x\n", *head);
+  pushChar('b', &charList);
+  printf("head* address after pushChar %x\n", charList);
   printf("character b :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-  head = pushChar('a', *head);
-  printf("head* address after pushChar %x\n", *head);
+  pushChar('c', &charList);
+  printf("head* address after pushChar %x\n", charList);
   printf("character c :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-  head = pushChar('a', *head);
-  printf("charList address after pushChar %x\n", *head);
+  pushChar('d', &charList);
+  printf("charList address after pushChar %x\n", charList);
   printf("character d :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
@@ -95,11 +95,16 @@ void* load(const char* pathname){
 //each time you push an element onto the stack
 //the new element becomes the new head of the stack
 //for some reason I can't create new nodes. uh oh
-llChar* pushChar(char c, llChar charList){
+void pushChar(char c, llChar** head){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
+  if(newNode == NULL){
+    printf("Couldn't malloc() space! Exiting...");
+    exit(1);
+  }
   newNode->data = c;
-  newNode->next = &charList;
+  newNode->next = *head;
+  *head = newNode;
   printf("charList address %x\n", charList);
   printf("newNode address %x\n", newNode);
 
