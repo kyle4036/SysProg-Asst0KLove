@@ -15,7 +15,7 @@ typedef struct llPntr_{void* data; struct llPntr_* next;struct llChar_* prev;} l
 void* load(const char* pathname);
 
 void pushChar(char c, llChar** head);
-llPntr pushPntr(void* p, llPntr pntrList);
+llPntr pushPntr(void* p, llPntr** head);
 
 int main(int argc,char* argv){
 
@@ -32,7 +32,7 @@ int main(int argc,char* argv){
     printf("head address after pushChar %x\n", head);
     printf("#%d:character %c :: %c ::\n",i,i+'a',(*head).data);
     printf("next char :: %c :: \n", (*(*head).next).data);
-    if(i > 1){
+    if(i > 0){
       printf("next, next char :: %c :: \n", (*(*(*head).next).next).data);
     }
   }
