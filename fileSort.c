@@ -103,7 +103,7 @@ llChar* pushChar(char c, llChar charList){
   printf("charList address %x\n", charList);
   printf("newNode address %x\n", newNode);
 
-  return newNode;
+  return &newNode;
 }
 //pushPntr()
 //same as pushChar() but with pointers
