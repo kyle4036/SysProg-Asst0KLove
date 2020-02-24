@@ -14,7 +14,7 @@ typedef struct llPntr_{void* data; struct llPntr_* next;struct llChar_* prev;} l
 
 void* load(const char* pathname);
 
-llChar* pushChar(char c, llChar charList);
+void pushChar(char c, llChar charList);
 llPntr pushPntr(void* p, llPntr pntrList);
 
 int main(int argc,char* argv){
