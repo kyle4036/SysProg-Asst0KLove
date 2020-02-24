@@ -12,17 +12,19 @@ typedef struct llChar_{char data; struct llChar_* next;} llChar;
 typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 
-void* load(const char* pathname);
+llPntr load(const char* pathname);
 
 void pushChar(char c, llChar** head);
 void pushPntr(void* p, llPntr** head);
+void printCharList(llChar data);
+void printPntrList(llPntr data);
 
 int main(int argc,char* argv){
 
   return 0;
 }
 
-void* load(const char* pathname){
+llPntr load(const char* pathname){
   llPntr data;
   int fd = open(pathname, O_RDONLY);
 
@@ -100,4 +102,15 @@ void pushPntr(void* p, llPntr** head){
   newNode->data = p;
   newNode->next = *head;
   *head = newNode;
+}
+
+void printCharList(llChar data){
+  llChar current = data;
+  while(current.data != '\0'){
+    printf("%c",current.data)
+    current = *current.next;
+  }
+}
+void printPntrList(llPntr data){
+
 }
