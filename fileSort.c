@@ -12,7 +12,7 @@ typedef struct llChar_{char data; struct llChar_* next;} llChar;
 typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 
-llPntr load(const char* pathname);
+llPntr* load(const char* pathname);
 
 void pushChar(char c, llChar** head);
 void pushPntr(void* p, llPntr** head);
@@ -24,7 +24,7 @@ int main(int argc,char* argv){
   return 0;
 }
 
-llPntr load(const char* pathname){
+llPntr* load(const char* pathname){
   int fd = open(pathname, O_RDONLY);
 
   if(fd == -1){//checks if the file couldn't be opened
