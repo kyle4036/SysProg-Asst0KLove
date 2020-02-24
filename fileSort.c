@@ -19,25 +19,6 @@ void pushPntr(void* p, llPntr** head);
 
 int main(int argc,char* argv){
 
-
-//this is all temporary for testing purposes
-  llChar charList;
-  llChar* head;
-  charList.data = '0';
-  head = &charList;
-  printf("character 0 :: %c ::\n",charList.data);
-  int i;
-  for(i = 0;i < 5;i++){
-    pushChar(i+'a', &head);
-    printf("head address after pushChar %x\n", head);
-    printf("#%d:character %c :: %c ::\n",i,i+'a',(*head).data);
-    printf("next char :: %c :: \n", (*(*head).next).data);
-    if(i > 0){
-      printf("next, next char :: %c :: \n", (*(*(*head).next).next).data);
-    }
-  }
-  //printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-
   return 0;
 }
 
@@ -71,7 +52,7 @@ void* load(const char* pathname){
       }
     }
     else if(charTemp == ' ' || charTemp == '\n' || charTemp == '\t'){
-      continue;
+      continue;//throws out any garbage data
     }
     else if(charTemp == ','){
 
