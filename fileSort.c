@@ -25,7 +25,6 @@ int main(int argc,char* argv){
 }
 
 llPntr load(const char* pathname){
-  llPntr data;
   int fd = open(pathname, O_RDONLY);
 
   if(fd == -1){//checks if the file couldn't be opened
@@ -37,13 +36,19 @@ llPntr load(const char* pathname){
     }
   }
 
+  //set up the last data points
+  llPntr pntrEnd;
+  pntrEnd.data = NULL;
+  pntrEnd.next = NULL;
+  llPntr* pHead = &pntrEnd;
+
   int count=1;
   char charTemp;
-  llChar charList;
-  charList.data = '\0';
-  charList.next = NULL;//because I am using the lists as a stack,
-                       //there will be nothing coming after the first element
-  llChar* cHead = &charList;
+  llChar charEnd;
+  charEnd.data = '\0';
+  charEnd.next = NULL;//because I am using these lists as stacks,
+                       //there will be nothing coming after these elements
+  llChar* cHead = &charEnd;
 
   while(count != 0){//load in all the data into linked lists
     count = read(fd,&charTemp,sizeof(char));
@@ -58,8 +63,8 @@ llPntr load(const char* pathname){
       continue;//throws out any garbage data
     }
     else if(charTemp == ','){
-      pushPntr(&head, &data);
-      head = &charList;//reset the head to be the string terminator
+      pushPntr(&cHead, &data);
+      head = &charEnd;//reset the head to be the string terminator
                        //makes it so that all data pointers end with the same llChar struct
     }
     else{
