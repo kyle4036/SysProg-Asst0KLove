@@ -30,7 +30,7 @@ void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
 
 int main(int argc,char* argv){
 
-  llPntr* data = load((char*)argv[1]);
+  llPntr* data = load((const char*)argv[1]);
 
   printPntrList(&data);
 
