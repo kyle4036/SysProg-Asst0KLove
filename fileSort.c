@@ -63,18 +63,18 @@ llPntr load(const char* pathname){
       continue;//throws out any garbage data
     }
     else if(charTemp == ','){
-      pushPntr(&cHead, &data);
-      head = &charEnd;//reset the head to be the string terminator
+      pushPntr(&cHead, &pHead);
+      cHead = &charEnd;//reset the head to be the string terminator
                        //makes it so that all data pointers end with the same llChar struct
     }
     else{
-      pushChar(charTemp, &head);
+      pushChar(charTemp, &cHead);
     }
   }
 
 
   close(fd);
-  return data;
+  return pHead;
 }
 
 //pushChar()
@@ -113,7 +113,7 @@ void printCharList(llChar data){
   llChar current = data;
   while(current.data != '\0'){
     printf("%c",current.data);
-    current = current.next;
+    current = *current.next;
   }
 }
 void printPntrList(llPntr data){
