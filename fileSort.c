@@ -128,7 +128,7 @@ int charLen(llChar list){
   llChar current = list;
   int i = 0;
 
-  while((*current).next != NULL){
+  while(current.next != NULL){
     i++;
     current = *current.next;
   }
@@ -186,8 +186,8 @@ void printCharList(llChar data){
 }
 void printPntrList(llPntr data){
   llPntr current = data;
-  while((*current).data != NULL){
-    printCharList(current.data);
+  while(current.data != NULL){
+    printCharList((llChar)current.data);
     current = *(current.next);
   }
 }
