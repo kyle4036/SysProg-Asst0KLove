@@ -30,14 +30,17 @@ int main(int argc,char* argv){
   printf("character a :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   charList = *pushChar('b', charList);
+  printf("charList address after pushChar %x\n", charList);
   printf("character b :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   charList = *pushChar('c', charList);
+  printf("charList address after pushChar %x\n", charList);
   printf("character c :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
   charList = *pushChar('d', charList);
+  printf("charList address after pushChar %x\n", charList);
   printf("character d :: %c ::\n",charList.data);
   printf("next char :: %c :: \n", (*charList.next).data);
   printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
