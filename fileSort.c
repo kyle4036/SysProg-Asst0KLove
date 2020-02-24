@@ -25,7 +25,8 @@ int main(int argc,char* argv){
   //llChar* head;
   charList.data = '0';
   printf("character 0 :: %c ::\n",charList.data);
-  for(int i = 0;i < 5;i++){
+  int i;
+  for(i = 0;i < 5;i++){
     pushChar(i+97, *charList);
     printf("charList address after pushChar %x\n", charList);
     printf("#%d:character %c :: %c ::\n",i,i+97,charList.data);
