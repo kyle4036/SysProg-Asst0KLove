@@ -15,7 +15,7 @@ typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 void* load(const char* pathname);
 
 void pushChar(char c, llChar** head);
-llPntr pushPntr(void* p, llPntr** head);
+void pushPntr(void* p, llPntr** head);
 
 int main(int argc,char* argv){
 
@@ -103,7 +103,7 @@ void pushChar(char c, llChar** head){
 
 //pushPntr()
 //same as pushChar() but with pointers
-llPntr pushPntr(void* p, llPntr** head){
+void pushPntr(void* p, llPntr** head){
   llPntr* newNode = NULL;
   newNode = (llPntr*)malloc(sizeof(llChar));
   if(newNode == NULL){
