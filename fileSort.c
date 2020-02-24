@@ -95,8 +95,8 @@ llChar* pushChar(char c, llChar charList){
   newNode = (llChar*)malloc(sizeof(llChar));
   newNode->data = c;
   newNode->next = &charList;
-  printf("charList address %h\n", charList);
-  printf("newNode address %h\n", newNode);
+  printf("charList address %x\n", charList);
+  printf("newNode address %x\n", newNode);
 
   return newNode;
 }
