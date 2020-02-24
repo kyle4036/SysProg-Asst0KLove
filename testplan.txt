@@ -1,6 +1,7 @@
 
 
 to make sure the pointer functions worked I ran the code following code to test it
+----------------------------------------------------------------------------------
 //this is all temporary for testing purposes
   llChar charList;
   llChar* head;
@@ -18,7 +19,7 @@ to make sure the pointer functions worked I ran the code following code to test 
     }
   }
   //printf("next, next char :: %c :: \n", (*(*charList.next).next).data);
-
-  this code creates the characters from a to e and pushes them all onto the stack.
+----------------------------------------------------------------------------------
+  this code creates the characters from a to e and pushes them all onto a charList stack.
   I was having trouble figuring out how to implement a linked list, but figured it out
   eventually
