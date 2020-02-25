@@ -186,8 +186,10 @@ void printCharList(llChar data){
 }
 void printPntrList(llPntr data){
   llPntr current = data;
+  llChar cTemp;
   while(current.data != NULL){
-    printCharList((llChar)*(current.data));
+    cTemp = current.data;
+    printCharList(cTemp);
     current = *(current.next);
   }
 }
