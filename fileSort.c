@@ -188,7 +188,7 @@ void printPntrList(llPntr data){
   llPntr current = data;
   llChar cTemp;
   while(current.data != NULL){
-    cTemp = current.data;
+    cTemp = *(llChar*)current.data;
     printCharList(cTemp);
     current = *(current.next);
   }
