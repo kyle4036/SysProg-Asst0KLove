@@ -122,6 +122,37 @@ void pushPntr(void* p, llPntr** head){
   *head = newNode;
 }
 
+
+void swapPntr(llPntr x, llPntr y){
+  void* temp = x.data;
+  x.data = y.data;
+  y.data = temp;
+}
+
+void freeCharList(llChar* data){
+  llChar* current = data;
+  llChar* temp = current;
+  do{
+    current = (*current).next;
+    free(temp);
+    temp = current;
+  }while((*current).next != NULL);
+
+  //note: the last data object (charEnd) was instantiated at compile time,
+  //so we never need to touch it
+}
+
+void freePntrList(llPntr* data){
+  llPntr* current = data;
+  llPntr* temp = current;
+  do{
+    current = (*current).next;
+    freeCharList( (llChar*)(*temp).data );
+    free(temp);
+    temp = current;
+  }while((*current).next != NULL);
+}
+
 //get the length of the character linked lists
 //note: I think that this will return 1 less than the total, but thats ok
 int charLen(llChar list){
@@ -148,35 +179,6 @@ char* cListToString(llChar list){
     current = *current.next;
   }
   return s;
-}
-
-void swapPntr(llPntr x, llPntr y){
-  void* temp = x.data;
-  x.data = y.data;
-  y.data = temp;
-}
-
-void freeCharList(llChar* data){
-  llChar* current = data;
-  llChar* temp = current;
-  do{
-    current = (*current).next;
-    free(temp);
-    temp = current;
-  }while((*current).next != NULL);
-
-  //note: the last data object (charEnd) was instantiated at compile time,
-  //so we never need to touch it
-}
-void freePntrList(llPntr* data){
-  llPntr* current = data;
-  llPntr* temp = current;
-  do{
-    current = (*current).next;
-    freeCharList( (llChar*)(*temp).data );
-    free(temp);
-    temp = current;
-  }while((*current).next != NULL);
 }
 
 void printCharList(llChar data){
