@@ -96,7 +96,7 @@ llPntr* load(const char* pathname){
 //each time you push an element onto the stack,
 //the new element becomes the new head of the stack
 //how to use: send the address of the head of the linked list
-//note: make sure to free this data
+//note: make sure to free() this data
 void pushChar(char c, llChar** head){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
@@ -113,7 +113,7 @@ void pushChar(char c, llChar** head){
 
 //pushPntr()
 //same as pushChar() but with pointers
-//note: make sure to free this data
+//note: make sure to free() this data
 void pushPntr(void* p, llPntr** head){
   llPntr* newNode = NULL;
   newNode = (llPntr*)malloc(sizeof(llPntr));
@@ -170,7 +170,7 @@ int charLen(llChar list){
   return i;
 }
 
-//remember to free this data
+//remember to free() this data
 char* cListToString(llChar list){
   llChar current = list;
 
