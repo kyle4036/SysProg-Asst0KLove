@@ -12,7 +12,7 @@ typedef struct llChar_{char data; struct llChar_* next;} llChar;
 typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 
 
-llPntr* load(const char* pathname);//Needs to be tested (1)
+llPntr* load(const char* pathname);//Needs to be tested (1) (Important)
                                    //(might need to test everything else first)
 
 void pushChar(char c, llChar** head);
@@ -33,6 +33,8 @@ int main(int argc,char* argv){
   llPntr* data = load((char*)argv[1]);
 
   printPntrList(*data);
+
+  freePntrList(data);
 
   return 0;
 }
@@ -55,12 +57,12 @@ llPntr* load(const char* pathname){
   pntrEnd.next = NULL;
   llPntr* pHead = &pntrEnd;
 
-  int count=1;
-  char charTemp;
-  llChar charEnd;
+  int count=1;            //because I am using these lists as stacks,
+  char charTemp;          //there will be nothing coming after these two elements
+  llChar charEnd;         // (pntrEnd and charEnd)
   charEnd.data = '\0';
-  charEnd.next = NULL;//because I am using these lists as stacks,
-                       //there will be nothing coming after these elements
+  charEnd.next = NULL;
+
   llChar* cHead = &charEnd;
 
   while(count != 0){//load in all the data into linked lists
@@ -94,11 +96,12 @@ llPntr* load(const char* pathname){
 //each time you push an element onto the stack,
 //the new element becomes the new head of the stack
 //how to use: send the address of the head of the linked list
+//note: make sure to free this data
 void pushChar(char c, llChar** head){
   llChar* newNode = NULL;
   newNode = (llChar*)malloc(sizeof(llChar));
   if(newNode == NULL){
-    printf("Couldn't malloc() space! Exiting...");
+    printf("pushChar(): Couldn't malloc() space! Exiting...");
     exit(1);
   }
   newNode->data = c;
@@ -110,11 +113,12 @@ void pushChar(char c, llChar** head){
 
 //pushPntr()
 //same as pushChar() but with pointers
+//note: make sure to free this data
 void pushPntr(void* p, llPntr** head){
   llPntr* newNode = NULL;
   newNode = (llPntr*)malloc(sizeof(llPntr));
   if(newNode == NULL){
-    printf("Couldn't malloc() space! Exiting...");
+    printf("PushPntr(): Couldn't malloc() space! Exiting...");
     exit(1);
   }
   newNode->data = p;
