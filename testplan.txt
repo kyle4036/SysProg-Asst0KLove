@@ -23,3 +23,32 @@ to make sure the pointer functions worked I ran the code following code to test 
   this code creates the characters from a to e and pushes them all onto a charList stack.
   I was having trouble figuring out how to implement a linked list, but figured it out
   eventually
+  ----------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------
+  
+  
+  To make sure the printCharList function worked I ran the following code to test it
+  ----------------------------------------------------------------------------------
+  llChar* charHead;
+  llChar element0;
+  element0.data = '0';
+  element0.next = NULL;
+  
+  charHead = &element0;
+  
+  int i;
+  for(i = 0;i < 10;i++){
+    pushChar(i+'a', &charHead);
+  }
+  
+  printf("num of elements - %d\nelements -\n", charLen(*charHead));
+  
+  printCharList(*charHead);
+
+  return 0;
+  ----------------------------------------------------------------------------------
+  just a test on the printCharList() function
+  
+  ----------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------
+  
