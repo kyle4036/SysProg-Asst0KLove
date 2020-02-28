@@ -188,7 +188,7 @@ int charLen(llChar list){
 
 //remember to free() this data
 char* cListToString(llChar list){
-  llChar current = *list.next;//because the data is backwords, we need to reverse the string
+  llChar current = list;
 
   int len = charLen(list);
   char* s = (char*)malloc(len*sizeof(char));
@@ -198,7 +198,7 @@ char* cListToString(llChar list){
   }
 
   int i;
-  for(i = len;i > 0;i--){
+  for(i = len;i > 0;i--){//because the data is backwords, the string needs to be reversed
     s[i] = current.data;
     current = *current.next;
   }
