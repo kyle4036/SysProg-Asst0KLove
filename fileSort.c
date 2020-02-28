@@ -30,11 +30,21 @@ void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
 
 int main(int argc,char* argv){
 
-  llPntr* data = load((char*)argv[1]);
+  //llPntr* data = load((char*)argv[1]);
 
-  printPntrList(*data);
+  //printPntrList(*data);
 
-  freePntrList(data);
+  //freePntrList(data);
+  
+  llChar* charHead;
+  llChar element0;
+  element0.data = '0';
+  element0.next = NULL;
+  
+  charHead = &element0;
+  
+  int i = 0;
+  for(
 
   return 0;
 }
