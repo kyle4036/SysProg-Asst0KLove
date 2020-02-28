@@ -43,8 +43,12 @@ int main(int argc,char* argv){
   
   charHead = &element0;
   
-  int i = 0;
-  for(
+  int i;
+  for(i = 0;i < 10;i++){
+    pushChar(i+'a', &charHead);
+  }
+  
+  printCharList(*charHead);
 
   return 0;
 }
