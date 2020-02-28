@@ -35,22 +35,24 @@ int main(int argc,char* argv){
   //printPntrList(*data);
 
   //freePntrList(data);
-  
+
+  //Testing Code
   llChar* charHead;
   llChar element0;
   element0.data = '0';
   element0.next = NULL;
-  
+
   charHead = &element0;
-  
+
   int i;
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
   }
-  
+
   printf("num of elements - %d\nelements -\n", charLen(*charHead));
-  
+
   printCharList(*charHead);
+  //End of testing Code
 
   return 0;
 }
