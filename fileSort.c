@@ -198,7 +198,7 @@ char* cListToString(llChar list){
   }
 
   int i;
-  for(i = 0;i<=len;i++){
+  for(i = 0;i<len;i++){
     s[i] = current.data;
     current = *current.next;
   }
