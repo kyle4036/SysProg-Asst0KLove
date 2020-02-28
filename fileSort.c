@@ -192,6 +192,10 @@ char* cListToString(llChar list){
 
   int len = charLen(list);
   char* s = (char*)malloc(len*sizeof(char));
+  if(s == NULL){
+    printf("cListToString(): Couldn't malloc() space! Exiting...");
+    exit(1);
+  }
 
   int i;
   for(i = 0;i<=len;i++){
