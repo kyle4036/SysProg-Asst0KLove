@@ -79,7 +79,7 @@ llPntr* load(const char* pathname){
     }
     else if(charTemp == ','){
       pushPntr(&cHead, &pHead);
-      cHead = &charEnd;//reset the head to be the string terminator
+      cHead = charEnd;//reset the head to be the string terminator
                        //makes it so that all data pointers end with the same llChar struct
     }
     else{
