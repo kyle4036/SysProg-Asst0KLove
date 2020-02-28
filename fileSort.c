@@ -52,18 +52,18 @@ llPntr* load(const char* pathname){
   }
 
   //set up the last data points
-  llPntr pntrEnd;
-  pntrEnd.data = NULL;
-  pntrEnd.next = NULL;
-  llPntr* pHead = &pntrEnd;
+  llPntr* pntrEnd = (llPntr*) malloc(sizeof(llPntr));
+  pntrEnd->data = NULL;
+  pntrEnd->next = NULL;
+  llPntr* pHead = pntrEnd;
 
   int count=1;            //because I am using these lists as stacks,
   char charTemp;          //there will be nothing coming after these two elements
-  llChar charEnd;         // (pntrEnd and charEnd)
+  llChar* charEnd = (llChar*) malloc(sizeof(llChar));         // (pntrEnd and charEnd)
   charEnd.data = '\0';
   charEnd.next = NULL;
 
-  llChar* cHead = &charEnd;
+  llChar* cHead = charEnd;
 
   while(count != 0){//load in all the data into linked lists
     count = read(fd,&charTemp,sizeof(char));
