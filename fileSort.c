@@ -48,6 +48,8 @@ int main(int argc,char* argv){
     pushChar(i+'a', &charHead);
   }
   
+  printf("num of elements - %d\nelements -\n", charLen(*charHead));
+  
   printCharList(*charHead);
 
   return 0;
