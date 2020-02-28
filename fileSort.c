@@ -60,8 +60,8 @@ llPntr* load(const char* pathname){
   int count=1;            //because I am using these lists as stacks,
   char charTemp;          //there will be nothing coming after these two elements
   llChar* charEnd = (llChar*) malloc(sizeof(llChar));         // (pntrEnd and charEnd)
-  charEnd.data = '\0';
-  charEnd.next = NULL;
+  charEnd->data = '\0';
+  charEnd->next = NULL;
 
   llChar* cHead = charEnd;
 
