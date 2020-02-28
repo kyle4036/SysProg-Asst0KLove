@@ -47,8 +47,9 @@ to make sure the pointer functions worked I ran the code following code to test 
 
   return 0;
   ----------------------------------------------------------------------------------
-  just a test on the printCharList() function
-  
+  just a test on the printCharList() function. testing it, I realized that the data was 
+  input backwards, so I adjusted the the function that returns the string to organize the
+  data backwards
   ----------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------
   
