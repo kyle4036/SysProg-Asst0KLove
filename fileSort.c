@@ -207,6 +207,13 @@ char* cListToString(llChar list){
   return s;
 }
 
+int cListToInt(llChar list){
+  int value;
+  char* str = cListToString(list);
+  value = atoi(str);
+  return value;
+}
+
 void printCharList(llChar data){
   char* cString = cListToString(data);
   printf("%s\n",cString);
