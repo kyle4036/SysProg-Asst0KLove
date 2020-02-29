@@ -49,7 +49,7 @@ int main(int argc,char* argv){
     pushChar(i+'a', &charHead);
   }
 
-  printf("num of elements - %d\nelements -\n", charLen(*charHead));
+  printf("num of elements - %d\nelements -\nelements as int - %d", charLen(*charHead),cListToInt(*charHead));
 
   printCharList(*charHead);
   //End of testing Code
