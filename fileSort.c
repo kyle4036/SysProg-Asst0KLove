@@ -26,6 +26,7 @@ void freePntrList(llPntr* data);//Needs to be tested (8)
 
 int charLen(llChar list);//seems to work
 char* cListToString(llChar list);//seems to work
+int cListToInt(llChar list);//seems to work
 void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
 
 int main(int argc,char* argv){
