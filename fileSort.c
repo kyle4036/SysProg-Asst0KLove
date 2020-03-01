@@ -62,9 +62,9 @@ int main(int argc,char* argv){
     charHead = &cElement0;
   }
 
-  printf("elements - ");
+  printf("elements - \n");
 
-  //printPntrList(*pHead);
+  printPntrList(*pHead);
 
   //End of testing Code
 
