@@ -15,33 +15,24 @@ typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
 llPntr* load(const char* pathname);//Needs to be tested (1) (Important)
                                    //(might need to test everything else first)
 
-void pushChar(char c, llChar** head);
-void pushPntr(void* p, llPntr** head);
+void pushChar(char c, llChar** head);//works
+void pushPntr(void* p, llPntr** head);//works
 
 void printCharList(llChar data);//works
-void printPntrList(llPntr data);//works holy shit annoying
+void printPntrList(llPntr data);//works
 
 void freeCharList(llChar* data);//Needs to be tested (7)
 void freePntrList(llPntr* data);//Needs to be tested (8)
 
-int charLen(llChar list);//seems to work
-char* cListToString(llChar list);//seems to work
+int charLen(llChar list);//works
+char* cListToString(llChar list);//works
 int cListToInt(llChar list);//seems to work
 void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
 
-int intComp(void* p, void* q);//seems to work
-//intComp() return values:
-  // 0 -- values are equal
-  // 1 -- first value is larger
-  // 2 -- second value is larger
-//--------------------------------
+llPntr getPntr(llPntr data, int x);//needs to be written 4.1
 
+int intComp(void* p, void* q);//seems to work
 int strComp(void* p, void* q); //seems to work
-//strComp() return values:
-  // 0 -- strings are equal
-  // 1 -- First string is alphabetically superior
-  // 2 -- Second string "    . . .     "
-// ---------------------------------------
 
 int insertionSort(void* toSort, int (*comparator)(void*, void*));
 int quickSort(void* toSort, int (*comparator)(void*, void*));
@@ -84,6 +75,8 @@ int main(int argc,char* argv){
 
 
 
+  printf("elements - \n");
+  printPntrList(*pHead);
   //End of testing Code
 
   return 0;
@@ -266,7 +259,15 @@ void printPntrList(llPntr data){
   }
 }
 
+llPntr getPntr(llPntr data, int x){
+  int
+}
 
+//intComp() return values:
+  // 0 -- values are equal
+  // 1 -- first value is larger
+  // 2 -- second value is larger
+//--------------------------------
 int intComp(void* p, void* q){
   int a = *(int*) p;
   int b = *(int*) q;
@@ -284,16 +285,25 @@ int intComp(void* p, void* q){
   return -1; //If something went wrong
 }
 
+//strComp() return values:
+  // 0 -- strings are equal
+  // 1 -- First string is alphabetically superior
+  // 2 -- Second string "    . . .     "
+// ---------------------------------------
 int strComp(void* p, void* q){
   char* str1 = (char*) p;
   char* str2 = (char*) q;
 
-  //printf("String1: %s\nString2: %s\n", str1, str2);
+  printf("String1: %s\nString2: %s\n", str1, str2);
+
+  if(str1[0] == '\0' || str2[0] == '\0'){
+    printf("*WARNING* -- One or more strings is empty. May have unexpected results!\n");
+  }
 
   int i;
-  for(i = 0; str1[i] == str2[i] && str1[i] != '\0';i++){}
+  for(i = 0; str1[i] == str2[i] && str1[i] != '\0'; i++){}
 
-  //printf("char1: %c\tchar2: %c\n", str1[i], str2[i]);
+  printf("char1: %c\tchar2: %c\n", str1[i], str2[i]);
 
   if(str1[i] > str2[i]){// Second string is superior
     return 2;
