@@ -178,10 +178,10 @@ void pushPntr(void* p, llPntr** head){
 }
 
 
-void swapPntr(llPntr x, llPntr y){
-  void* temp = x.data;
-  x.data = y.data;
-  y.data = temp;
+void swapPntr(llPntr* x, llPntr* y){
+  void* temp = *x.data;
+  *x.data = *y.data;
+  *y.data = temp;
 }
 
 void freeCharList(llChar* data){
