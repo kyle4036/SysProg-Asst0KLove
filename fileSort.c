@@ -79,7 +79,7 @@ int main(int argc,char* argv[]){
 
   //printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
   llPntr* element3 = getPntrAdd(*pHead,3);
-  llPntr* element6 = getPntrAd(*pHead,6);
+  llPntr* element6 = getPntrAdd(*pHead,6);
   printf("*element 3 - %0x \n*element 6 - %0x \n", element3,element6);
 
   swapPntr(element3, element6);
@@ -191,8 +191,8 @@ void pushPntr(void* p, llPntr** head){
 
 void swapPntr(llPntr* x, llPntr* y){
   void* temp = (*x).data;
-  (*x)data = (*y).data;
-  (*y)data = temp;
+  (*x).data = (*y).data;
+  (*y).data = temp;
 }
 
 void freeCharList(llChar* data){
