@@ -139,7 +139,7 @@ void pushChar(char c, llChar** head){
     exit(1);
   }
   newNode->data = c;
-  newNode->next = **head;
+  newNode->next = *head;
   *head = newNode;
   //printf("head address %x\n", head);
   //printf("newNode address %x\n", newNode);
@@ -156,7 +156,7 @@ void pushPntr(void* p, llPntr** head){
     exit(1);
   }
   newNode->data = p;
-  newNode->next = **head;
+  newNode->next = *head;
   *head = newNode;
 }
 
