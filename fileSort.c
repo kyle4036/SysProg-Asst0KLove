@@ -18,7 +18,7 @@ llPntr* load(const char* pathname);//Needs to be tested (1) (Important)
 void pushChar(char c, llChar** head);
 void pushPntr(void* p, llPntr** head);
 
-void printCharList(llChar data);//Needs to be tested (5)
+void printCharList(llChar data);//works
 void printPntrList(llPntr data);//Needs to be tested (6)
 
 void freeCharList(llChar* data);//Needs to be tested (7)
@@ -53,7 +53,7 @@ int main(int argc,char* argv){
   int i;
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
-    //pushPntr(&charHead, &pHead);
+    pushPntr(&charHead, &pHead);
     charHead = &cElement0;
   }
 
