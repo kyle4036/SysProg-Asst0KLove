@@ -39,20 +39,27 @@ int main(int argc,char* argv){
 
   //Testing Code
   llChar* charHead;
-  llChar element0;
-  element0.data = '0';
-  element0.next = NULL;
+  llChar cElement0;
+  cElement0.data = '0';
+  cElement0.next = NULL;
+  charHead = &cElement0;
 
-  charHead = &element0;
+  llPntr* pHead;
+  llPntr pElement0;
+  pElement0.data = NULL;
+  pElement0.data = NULL;
+  pHead = &pElement0;
 
   int i;
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
+    pushPntr(&charHead, &pHead);
+    charHead = c&Element0;
   }
 
-  printf("num of elements - %d\nelements as int - %d\nelements - ", charLen(*charHead),cListToInt(*charHead));
+  printf("elements - ");
 
-  printCharList(*charHead);
+  printPntrList(*pHead);
   //End of testing Code
 
   return 0;
@@ -212,6 +219,7 @@ int cListToInt(llChar list){
   int value;
   char* str = cListToString(list);
   value = atoi(str);
+  free(str);
   return value;
 }
 
