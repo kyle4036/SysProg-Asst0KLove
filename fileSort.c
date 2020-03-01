@@ -39,7 +39,7 @@ int quickSort(void* toSort, int (*comparator)(void*, void*));
 
 int main(int argc,char* argv){
 
-  printf(argv[1]);
+  printf(argv[0]);
 
   llPntr* data = load((char*)argv[1]);
 
