@@ -39,9 +39,9 @@ int quickSort(void* toSort, int (*comparator)(void*, void*));
 
 int main(int argc,const char* argv){
 
-  printf(argv[1]);
+  printf("%s",argv[1]);
 
-  llPntr* data = load((char*)argv[1]);
+  //llPntr* data = load((char*)argv[1]);
 
   //printPntrList(*data);
 
