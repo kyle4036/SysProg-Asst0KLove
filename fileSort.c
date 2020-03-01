@@ -54,6 +54,7 @@ int main(int argc,char* argv){
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
     pushPntr(&charHead, &pHead);
+    printf("cList %d - %s",i,cListToString(*charHead));
     charHead = &cElement0;
   }
 
@@ -208,7 +209,7 @@ char* cListToString(llChar list){
   }
 
   int i;
-  for(i = len;i >= 0;i--){//because the data is backwords, the string needs to be reversed
+  for(i = len-1;i >= 0;i--){//because the data is backwords, the string needs to be reversed
     s[i] = current.data;
     current = *current.next;
   }
