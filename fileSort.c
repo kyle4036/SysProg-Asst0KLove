@@ -254,6 +254,10 @@ char* pListToString(llPntr list, int index){
   return s;
 }
 
+llChar getCList(llPntr x){//used for debuging
+  return *(llChar*)x.data;
+}
+
 void printCharList(llChar data){
   char* cString = cListToString(data);
   printf("%s\n",cString);
