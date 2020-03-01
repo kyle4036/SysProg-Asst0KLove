@@ -244,7 +244,7 @@ void printPntrList(llPntr data){
     printf("2\n");
     printCharList(cTemp);
     printf("3\n");
-    current = *(current.next);
+    current = *current.next;
     printf("4\n");
   }
 }
