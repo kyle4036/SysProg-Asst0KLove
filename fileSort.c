@@ -247,6 +247,12 @@ int cListToInt(llChar list){
   free(str);
   return value;
 }
+char* pListToString(llPntr list, int index){
+  llPntr node = getPntr(list, index);
+  llChar* str = node.data;
+  char* s = cListToString(*str);
+  return s;
+}
 
 void printCharList(llChar data){
   char* cString = cListToString(data);
