@@ -59,6 +59,7 @@ int main(int argc,char* argv){
     pushChar(i+'a', &charHead);
     pushPntr(&charHead, &pHead);
     printf("cList %d - %s\n",i,cListToString(*charHead));
+    printCharList(*charHead);
     charHead = &cElement0;
   }
 
@@ -235,7 +236,7 @@ void printCharList(llChar data){
   free(cString);
 }
 void printPntrList(llPntr data){
-  printf("4");
+  //printf("1\n");
   llPntr current = data;
   llChar cTemp;
   while(current.data != NULL){
