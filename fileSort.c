@@ -208,7 +208,7 @@ char* cListToString(llChar list){
   }
 
   int i;
-  for(i = len-1;i >= 0;i--){//because the data is backwords, the string needs to be reversed
+  for(i = len;i >= 0;i--){//because the data is backwords, the string needs to be reversed
     s[i] = current.data;
     current = *current.next;
   }
