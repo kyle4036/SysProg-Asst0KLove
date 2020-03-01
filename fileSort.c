@@ -43,14 +43,17 @@ int main(int argc,char* argv[]){
 
   //printf("%s",argv[1]);
 
-  //llPntr* data = load((char*)argv[1]);
-  //printPntrList(*data);
+  llPntr* data = load((char*)argv[1]);
+  printPntrList(*data);
 
-  //freePntrList(data);
+  //Insert sorting functions here
+
+  freePntrList(data);
 
   //Testing Code
-  //
 
+  //commented out code can be used to make a small list
+  /*
   llChar* charHead;
   llChar cElement0;
   cElement0.data = '\0';
@@ -74,28 +77,8 @@ int main(int argc,char* argv[]){
 
   printf("elements - \n");
   printPntrList(*pHead);
+  */
 
-  //test stuff here
-
-  //printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
-  llPntr* element3 = getPntrAdd(*pHead,3);
-  llPntr* element6 = getPntrAdd(*pHead,6);
-  printf("*element 3 - %0x \n*element 6 - %0x \n", element3,element6);
-
-  swapPntr(element3, element6);
-  printf("elements after first swap- \n");
-  printPntrList(*pHead);
-
-  /*void* temp = element3.data;
-  element3.data = element6.data;
-  element6.data = temp;*/
-
-  //(*element3).data = &cElement0;
-
-  //Doing this thing
-
-  printf("elements after second swap- \n");
-  printPntrList(*pHead);
   //End of testing Code
 
   return 0;
