@@ -40,7 +40,7 @@ int main(int argc,char* argv){
   //Testing Code
   llChar* charHead;
   llChar cElement0;
-  cElement0.data = '0';
+  cElement0.data = '\0';
   cElement0.next = NULL;
   charHead = &cElement0;
 
