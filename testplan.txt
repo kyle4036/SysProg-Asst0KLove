@@ -25,31 +25,69 @@ to make sure the pointer functions worked I ran the code following code to test 
   eventually
   ----------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------
-  
-  
+
+
   To make sure the printCharList function worked I ran the following code to test it
   ----------------------------------------------------------------------------------
   llChar* charHead;
   llChar element0;
   element0.data = '0';
   element0.next = NULL;
-  
+
   charHead = &element0;
-  
+
   int i;
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
   }
-  
+
   printf("num of elements - %d\nelements -\n", charLen(*charHead));
-  
+
   printCharList(*charHead);
 
   return 0;
   ----------------------------------------------------------------------------------
-  just a test on the printCharList() function. testing it, I realized that the data was 
+  just a test on the printCharList() function. testing it, I realized that the data was
   input backwards, so I adjusted the the function that returns the string to organize the
   data backwards
   ----------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------
-  
+
+  to check the printPntrList function I spent 4 hours trying to figure out which
+  pointer was broken until I realized that I was sending the function an incorrect value
+  thanks c
+  ----------------------------------------------------------------------------------
+  llChar* charHead;
+  llChar cElement0;
+  cElement0.data = '\0';
+  cElement0.next = NULL;
+  charHead = &cElement0;
+
+  llPntr* pHead;
+  llPntr pElement0;
+  pElement0.data = NULL;
+  pElement0.data = NULL;
+  pHead = &pElement0;
+  //*/
+
+
+  int i;
+  for(i = 0;i < 10;i++){
+    pushChar(i+'a', &charHead);
+    pushPntr(charHead, &pHead);
+    printf("cList %d - %s\n",i,cListToString(*charHead));
+    printf("printCharList()");
+    printCharList(*charHead);
+    printf("current pntr list\n");
+    printPntrList(*pHead);
+    charHead = &cElement0;
+  }
+
+  printf("elements - \n");
+
+  printPntrList(*pHead);
+  ----------------------------------------------------------------------------------
+  f*** pointers 
+
+  ----------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------
