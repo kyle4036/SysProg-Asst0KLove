@@ -241,10 +241,10 @@ void printPntrList(llPntr data){
   llChar cTemp;
   while(current.data != NULL){
     cTemp = *(llChar*)current.data;
-    printf("2\n");
+    //printf("2\n");
     printCharList(cTemp);
-    printf("3\n");
+    //printf("3\n");
     current = *current.next;
-    printf("4\n");
+    //printf("4\n");
   }
 }
