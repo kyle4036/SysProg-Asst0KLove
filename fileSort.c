@@ -155,7 +155,7 @@ void pushPntr(void* p, llPntr** head){
     printf("PushPntr(): Couldn't malloc() space! Exiting...");
     exit(1);
   }
-  newNode->data = p;
+  newNode->data = *p;
   newNode->next = *head;
   *head = newNode;
 }
