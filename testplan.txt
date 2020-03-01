@@ -1,6 +1,6 @@
 
 
-to make sure the pointer functions worked I ran the code following code to test it
+to make sure the pointer functions worked we ran the code following code to test it
 ----------------------------------------------------------------------------------
 //this is all temporary for testing purposes
   llChar charList;
@@ -27,7 +27,7 @@ to make sure the pointer functions worked I ran the code following code to test 
   ----------------------------------------------------------------------------------
 
 
-  To make sure the printCharList function worked I ran the following code to test it
+  To make sure the printCharList function worked we ran the following code to test it
   ----------------------------------------------------------------------------------
   llChar* charHead;
   llChar element0;
@@ -47,8 +47,8 @@ to make sure the pointer functions worked I ran the code following code to test 
 
   return 0;
   ----------------------------------------------------------------------------------
-  just a test on the printCharList() function. testing it, I realized that the data was
-  input backwards, so I adjusted the the function that returns the string to organize the
+  just a test on the printCharList() function. testing it, we realized that the data was
+  input backwards, so we adjusted the function that returns the string to organize the
   data backwards
   ----------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------
@@ -87,7 +87,20 @@ to make sure the pointer functions worked I ran the code following code to test 
 
   printPntrList(*pHead);
   ----------------------------------------------------------------------------------
-  f*** pointers 
+  f*** pointers
+
+  ----------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------
+
+  to test the strComp we made a basic insertionSort function and checked if it worked
+  ----------------------------------------------------------------------------------
+  //NIKITA TEST:
+  int x = 2;
+  int y = 1;
+  insertionSort(NULL, strComp);
+  //intComp(x, y);
+  //END TEST-----
+  ----------------------------------------------------------------------------------
 
   ----------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------
