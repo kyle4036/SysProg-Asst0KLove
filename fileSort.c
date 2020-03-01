@@ -171,7 +171,7 @@ void pushPntr(void* p, llPntr** head){
 
 
 void swapPntr(llPntr x, llPntr y){
-  llPntr temp = x.data;
+  void* temp = x.data;
   x.data = y.data;
   y.data = temp;
 }
