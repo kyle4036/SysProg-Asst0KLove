@@ -57,7 +57,7 @@ int main(int argc,char* argv){
   int i;
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
-    pushPntr(&charHead, &pHead);
+    pushPntr(charHead, &pHead);
     printf("cList %d - %s\n",i,cListToString(*charHead));
     printCharList(*charHead);
     printPntrList(*pHead);
@@ -112,7 +112,7 @@ llPntr* load(const char* pathname){
       continue;//throws out any garbage data
     }
     else if(charTemp == ','){
-      pushPntr(&cHead, &pHead);
+      pushPntr(cHead, &pHead);
       cHead = charEnd;//reset the head to be the string terminator
                        //makes it so that all data pointers end with the same llChar struct
     }
