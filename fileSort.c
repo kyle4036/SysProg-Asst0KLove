@@ -258,6 +258,10 @@ llChar getCList(llPntr x){//used for debuging
   return *(llChar*)x.data;
 }
 
+llPntr getNextP(llPntr x){
+  return *(llPntr*)x.next;
+}
+
 void printCharList(llChar data){
   char* cString = cListToString(data);
   printf("%s\n",cString);
