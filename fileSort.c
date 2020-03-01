@@ -76,10 +76,13 @@ int main(int argc,char* argv[]){
   //test stuff here
 
   //printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
-  swapPntr(getPntr(*pHead,3), getPntr(*pHead,6));
+  llPntr element3 = getPntr(*pHead,3);
+  llPntr element6 = getPntr(*pHead,6)
+  printf("*element 3 - %0x \n*element 6 - %0x \n", element3,element 6)
+  swapPntr(element3, element6);
   //Doing this thing
 
-  printf("elements - \n");
+  printf("elements after swap- \n");
   printPntrList(*pHead);
   //End of testing Code
 
