@@ -88,7 +88,7 @@ int main(int argc,char* argv[]){
   element3.data = element6.data;
   element6.data = temp;*/
 
-  element3.data = cElement0;
+  element3.data = &cElement0;
 
   //Doing this thing
 
