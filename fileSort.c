@@ -39,14 +39,15 @@ int quickSort(void* toSort, int (*comparator)(void*, void*));
 
 int main(int argc,char* argv){
 
-  //llPntr* data = load((char*)argv[1]);
+  llPntr* data = load((char*)argv[1]);
 
   //printPntrList(*data);
 
   //freePntrList(data);
 
   //Testing Code
-  ///*
+  //
+  /*
   llChar* charHead;
   llChar cElement0;
   cElement0.data = '\0';
@@ -58,7 +59,7 @@ int main(int argc,char* argv){
   pElement0.data = NULL;
   pElement0.data = NULL;
   pHead = &pElement0;
-  //*/
+  //
 
 
   int i;
@@ -75,11 +76,12 @@ int main(int argc,char* argv){
 
   //printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
   swapPntr(getPntr(*pHead,3), getPntr(*pHead,6));
-
+  //Doing this thing
 
   printf("elements - \n");
   printPntrList(*pHead);
   //End of testing Code
+  */
 
   return 0;
 }
