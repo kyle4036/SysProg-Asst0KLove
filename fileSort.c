@@ -37,7 +37,7 @@ int strComp(void* p, void* q); //seems to work
 int insertionSort(void* toSort, int (*comparator)(void*, void*));
 int quickSort(void* toSort, int (*comparator)(void*, void*));
 
-int main(int argc,char* argv){
+int main(int argc,char* argv[]){
 
   //printf("%s",argv[1]);
 
