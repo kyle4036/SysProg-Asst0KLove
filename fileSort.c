@@ -251,17 +251,14 @@ void printCharList(llChar data){
   free(cString);
 }
 void printPntrList(llPntr data){
-  //printf("1\n");
   llPntr current = data;
   llChar cTemp;
   while(current.data != NULL){
     cTemp = *(llChar*)current.data;
-    //printf("2\n");
     printCharList(cTemp);
-    //printf("3\n");
     current = *current.next;
-    //printf("4\n");
   }
+  printf("\n");
 }
 
 llPntr getPntr(llPntr data, int x){
