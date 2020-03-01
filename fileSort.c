@@ -73,7 +73,7 @@ int main(int argc,char* argv){
 
   //test stuff here
 
-  printf("address of the 3rd llPntr - %0x",getPntr(*pHead, 3));
+  printf("address of the 3rd llPntr - %0x\n",getPntr(*pHead, 3));
 
   printf("elements - \n");
   printPntrList(*pHead);
