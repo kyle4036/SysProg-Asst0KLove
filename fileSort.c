@@ -50,6 +50,8 @@ int main(int argc,char* argv){
   pElement0.data = NULL;
   pHead = &pElement0;
 
+  printf("1");
+
   int i;
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
