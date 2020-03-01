@@ -41,14 +41,14 @@ int main(int argc,char* argv[]){
 
   //printf("%s",argv[1]);
 
-  llPntr* data = load((char*)argv[1]);
-  printPntrList(*data);
+  //llPntr* data = load((char*)argv[1]);
+  //printPntrList(*data);
 
-  freePntrList(data);
+  //freePntrList(data);
 
   //Testing Code
   //
-  /*
+
   llChar* charHead;
   llChar cElement0;
   cElement0.data = '\0';
@@ -82,7 +82,7 @@ int main(int argc,char* argv[]){
   printf("elements - \n");
   printPntrList(*pHead);
   //End of testing Code
-  */
+
 
   return 0;
 }
