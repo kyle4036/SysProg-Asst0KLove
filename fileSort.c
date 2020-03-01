@@ -79,7 +79,7 @@ int main(int argc,char* argv[]){
   llPntr element3 = getPntr(*pHead,3);
   llPntr element6 = getPntr(*pHead,6);
   printf("*element 3 - %0x \n*element 6 - %0x \n", &element3,&element6);
-  swapPntr(&element3, &element6);
+  swapPntr(element3, element6);
   //Doing this thing
 
   printf("elements after swap- \n");
