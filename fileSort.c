@@ -29,7 +29,7 @@ char* cListToString(llChar list);//works
 int cListToInt(llChar list);//seems to work
 void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
 
-llPntr getPntr(llPntr data, int x);//needs to be written 4.1
+llPntr getPntr(llPntr data, int x);//testing
 
 int intComp(void* p, void* q);//seems to work
 int strComp(void* p, void* q); //seems to work
@@ -171,7 +171,7 @@ void pushPntr(void* p, llPntr** head){
 
 
 void swapPntr(llPntr x, llPntr y){
-  void* temp = x.data;
+  llPntr temp = x.data;
   x.data = y.data;
   y.data = temp;
 }
