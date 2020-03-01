@@ -27,7 +27,7 @@ void freePntrList(llPntr* data);//Needs to be tested (8)
 int charLen(llChar list);//works
 char* cListToString(llChar list);//works
 int cListToInt(llChar list);//seems to work
-void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)//this just probably works
+void swapPntr(llPntr* x, llPntr* y);//Needs to be tested (4)//this just probably works
 
 llPntr getPntr(llPntr data, int x);//works, note 0 equals the first element
 
@@ -79,7 +79,7 @@ int main(int argc,char* argv[]){
   llPntr element3 = getPntr(*pHead,3);
   llPntr element6 = getPntr(*pHead,6);
   printf("*element 3 - %0x \n*element 6 - %0x \n", &element3,&element6);
-  swapPntr(element3, element6);
+  swapPntr(&element3, &element6);
   //Doing this thing
 
   printf("elements after swap- \n");
