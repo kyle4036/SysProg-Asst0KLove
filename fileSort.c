@@ -53,7 +53,7 @@ int main(int argc,char* argv){
   pHead = &pElement0;
   //*/
 
-  /*
+
   int i;
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
@@ -65,7 +65,7 @@ int main(int argc,char* argv){
   printf("elements - ");
 
   printPntrList(*pHead);
-  */
+
   //End of testing Code
 
   return 0;
