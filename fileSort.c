@@ -77,23 +77,24 @@ int main(int argc,char* argv[]){
 
   //printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
   llPntr element3 = getPntr(*pHead,3);
-  llPntr element6 = getPntr(*pHead,6);
+  /*llPntr element6 = getPntr(*pHead,6);
   printf("*element 3 - %0x \n*element 6 - %0x \n", element3,element6);
-  swapPntr(&element3, &element6);
 
+  swapPntr(&element3, &element6);
   printf("elements after first swap- \n");
   printPntrList(*pHead);
 
   void* temp = element3.data;
   element3.data = element6.data;
-  element6.data = temp;
+  element6.data = temp;*/
+
+  element3.data = cElement0;
 
   //Doing this thing
 
   printf("elements after second swap- \n");
   printPntrList(*pHead);
   //End of testing Code
-
 
   return 0;
 }
