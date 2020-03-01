@@ -19,7 +19,7 @@ void pushChar(char c, llChar** head);
 void pushPntr(void* p, llPntr** head);
 
 void printCharList(llChar data);//works
-void printPntrList(llPntr data);//Needs to be tested (6)
+void printPntrList(llPntr data);//works holy shit annoying
 
 void freeCharList(llChar* data);//Needs to be tested (7)
 void freePntrList(llPntr* data);//Needs to be tested (8)
@@ -28,6 +28,23 @@ int charLen(llChar list);//seems to work
 char* cListToString(llChar list);//seems to work
 int cListToInt(llChar list);//seems to work
 void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
+
+int intComp(void* p, void* q);//seems to work
+//intComp() return values:
+  // 0 -- values are equal
+  // 1 -- first value is larger
+  // 2 -- second value is larger
+//--------------------------------
+
+int strComp(void* p, void* q); //seems to work
+//strComp() return values:
+  // 0 -- strings are equal
+  // 1 -- First string is alphabetically superior
+  // 2 -- Second string "    . . .     "
+// ---------------------------------------
+
+int insertionSort(void* toSort, int (*comparator)(void*, void*));
+int quickSort(void* toSort, int (*comparator)(void*, void*));
 
 int main(int argc,char* argv){
 
@@ -57,17 +74,15 @@ int main(int argc,char* argv){
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
     pushPntr(charHead, &pHead);
-    printf("cList %d - %s\n",i,cListToString(*charHead));
-    printf("printCharList()");
-    printCharList(*charHead);
-    printf("current pntr list\n");
-    printPntrList(*pHead);
     charHead = &cElement0;
   }
 
   printf("elements - \n");
-
   printPntrList(*pHead);
+
+  //test stuff here
+
+
 
   //End of testing Code
 
@@ -249,4 +264,72 @@ void printPntrList(llPntr data){
     current = *current.next;
     //printf("4\n");
   }
+}
+
+
+int intComp(void* p, void* q){
+  int a = *(int*) p;
+  int b = *(int*) q;
+
+  int res = a-b;
+
+  if(res == 0){ //Values are the same
+    return 0;
+  }else if(res > 0){// first value is larger
+    return 1;
+  }else if(res < 0){// Second value is larger
+    return 2;
+  }
+
+  return -1; //If something went wrong
+}
+
+int strComp(void* p, void* q){
+  char* str1 = (char*) p;
+  char* str2 = (char*) q;
+
+  //printf("String1: %s\nString2: %s\n", str1, str2);
+
+  int i;
+  for(i = 0; str1[i] == str2[i] && str1[i] != '\0';i++){}
+
+  //printf("char1: %c\tchar2: %c\n", str1[i], str2[i]);
+
+  if(str1[i] > str2[i]){// Second string is superior
+    return 2;
+  }else if(str2[i] > str1[i]){ // First string is superior
+    return 1;
+  }
+
+  //** NOTE: Lower in alphabetical order <==> LARGER ASCII value of character **
+
+  return 0; // Strings are equal
+}
+
+int insertionSort(void* toSort, int (*comparator)(void*, void*)){
+
+  /*int* x;
+  int* y;
+  *x = 4;
+  *y = 2;
+  int res = comparator(x, y);
+  printf("%d\n",res);
+  */
+  //int res = comparator(nums[1], nums[0]);
+
+  /*char* str1 = "Hello";
+  char* str2 = "Hew";
+
+  int res = comparator(str2, str1);
+
+  printf("strComp() ==> %d\n", res);*/
+
+  return 0;
+}
+
+int quickSort(void* toSort, int (*comparator)(void*, void*)){
+
+
+
+  return 0;
 }
