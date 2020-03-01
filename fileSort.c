@@ -61,6 +61,7 @@ int main(int argc,char* argv){
     printf("cList %d - %s\n",i,cListToString(*charHead));
     printCharList(*charHead);
     charHead = &cElement0;
+    printPntrList(*pHead);
   }
 
   printf("elements - \n");
