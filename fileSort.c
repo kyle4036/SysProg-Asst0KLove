@@ -240,10 +240,10 @@ void printPntrList(llPntr data){
   llChar cTemp;
   while(current.data != NULL){
     cTemp = *(llChar*)current.data;
-    printf("1");
+    printf("1\n");
     printCharList(cTemp);
-    printf("2");
+    printf("2\n");
     current = *(current.next);
-    printf("3");
+    printf("3\n");
   }
 }
