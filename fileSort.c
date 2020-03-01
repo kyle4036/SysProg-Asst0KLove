@@ -38,7 +38,7 @@ int main(int argc,char* argv){
   //freePntrList(data);
 
   //Testing Code
-  printf("1");
+  printf("echo");
   llChar* charHead;
   llChar cElement0;
   cElement0.data = '\0';
