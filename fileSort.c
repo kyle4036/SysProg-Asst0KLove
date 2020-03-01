@@ -230,6 +230,7 @@ void printCharList(llChar data){
   free(cString);
 }
 void printPntrList(llPntr data){
+  printf("4");
   llPntr current = data;
   llChar cTemp;
   while(current.data != NULL){
