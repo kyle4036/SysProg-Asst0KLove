@@ -198,7 +198,7 @@ int charLen(llChar list){
 
   while(current.next != NULL){
     i++;
-    current = *current.next;
+    current = *(current.next);
   }
   return i;
 }
