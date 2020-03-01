@@ -73,7 +73,7 @@ int main(int argc,char* argv){
 
   //test stuff here
 
-  printf("address of the 3rd llPntr - %0x",getPntr(*pHead, 3);
+  printf("address of the 3rd llPntr - %0x",getPntr(*pHead, 3));
 
   printf("elements - \n");
   printPntrList(*pHead);
@@ -261,7 +261,7 @@ void printPntrList(llPntr data){
 
 llPntr getPntr(llPntr data, int x){
   llPntr current = data;
-  if(current == NULL){
+  if(current.data == NULL){
     printf("getPntr() - **WARNING** - Broken Pointers or Data");
   }
   int i;
