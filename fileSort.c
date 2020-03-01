@@ -60,8 +60,8 @@ int main(int argc,char* argv){
     pushPntr(&charHead, &pHead);
     printf("cList %d - %s\n",i,cListToString(*charHead));
     printCharList(*charHead);
-    charHead = &cElement0;
     printPntrList(*pHead);
+    charHead = &cElement0;
   }
 
   printf("elements - \n");
@@ -155,7 +155,7 @@ void pushPntr(void* p, llPntr** head){
     printf("PushPntr(): Couldn't malloc() space! Exiting...");
     exit(1);
   }
-  newNode->data = *p;
+  newNode->data = p;
   newNode->next = *head;
   *head = newNode;
 }
