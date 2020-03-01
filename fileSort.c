@@ -60,8 +60,8 @@ int main(int argc,char* argv){
     pushPntr(&charHead, &pHead);
     printf("cList %d - %s\n",i,cListToString(*charHead));
     printCharList(*charHead);
-    printPntrList(*pHead);
     charHead = &cElement0;
+    printPntrList(*pHead);
   }
 
   printf("elements - \n");
