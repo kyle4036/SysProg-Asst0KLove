@@ -38,6 +38,7 @@ int main(int argc,char* argv){
   //freePntrList(data);
 
   //Testing Code
+  printf("1");
   llChar* charHead;
   llChar cElement0;
   cElement0.data = '\0';
@@ -50,7 +51,7 @@ int main(int argc,char* argv){
   pElement0.data = NULL;
   pHead = &pElement0;
 
-  printf("1");
+
 
   int i;
   for(i = 0;i < 10;i++){
