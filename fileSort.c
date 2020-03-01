@@ -73,7 +73,7 @@ int main(int argc,char* argv){
 
   //test stuff here
 
-
+  printf("address of the 3rd llPntr - %0x",getPntr(*pHead, 3);
 
   printf("elements - \n");
   printPntrList(*pHead);
@@ -260,7 +260,19 @@ void printPntrList(llPntr data){
 }
 
 llPntr getPntr(llPntr data, int x){
-  int
+  llPntr current = data;
+  if(current == NULL){
+    printf("getPntr() - **WARNING** - Broken Pointers or Data");
+  }
+  int i;
+  for(i = 0;i < x;i++){
+    if(current.next == NULL){
+      printf("getPntr(): Not enough elements in list");
+      exit(1);
+    }
+    current = *current.next;
+  }
+  return current;
 }
 
 //intComp() return values:
