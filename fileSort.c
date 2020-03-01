@@ -27,9 +27,9 @@ void freePntrList(llPntr* data);//Needs to be tested (8)
 int charLen(llChar list);//works
 char* cListToString(llChar list);//works
 int cListToInt(llChar list);//seems to work
-void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)
+void swapPntr(llPntr x, llPntr y);//Needs to be tested (4)//this just probably works
 
-llPntr getPntr(llPntr data, int x);//testing
+llPntr getPntr(llPntr data, int x);//works, note 0 equals the first element
 
 int intComp(void* p, void* q);//seems to work
 int strComp(void* p, void* q); //seems to work
@@ -73,7 +73,9 @@ int main(int argc,char* argv){
 
   //test stuff here
 
-  printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
+  //printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
+  swapPntr(getPntr(*pHead,3), getPntr(*pHead,6));
+
 
   printf("elements - \n");
   printPntrList(*pHead);
