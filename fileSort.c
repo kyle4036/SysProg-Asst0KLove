@@ -39,7 +39,7 @@ int main(int argc,char* argv){
 
   //Testing Code
   printf("echo");
-  /*
+  ///*
   llChar* charHead;
   llChar cElement0;
   cElement0.data = '\0';
@@ -51,7 +51,7 @@ int main(int argc,char* argv){
   pElement0.data = NULL;
   pElement0.data = NULL;
   pHead = &pElement0;
-  */
+  //*/
 
   /*
   int i;
