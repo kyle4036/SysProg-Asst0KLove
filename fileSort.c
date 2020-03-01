@@ -84,8 +84,8 @@ int main(int argc,char* argv[]){
   printf("elements after first swap- \n");
   printPntrList(*pHead);
 
-  void* temp = &element3.data;
-  element3.data = &element6.data;
+  void* temp = *element3.data;
+  element3.data = *element6.data;
   element6.data = temp;
 
   //Doing this thing
