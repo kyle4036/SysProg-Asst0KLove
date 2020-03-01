@@ -41,7 +41,7 @@ int main(int argc,char* argv[]){
 
   printf("%s",argv[1]);
 
-  //llPntr* data = load((char*)argv[1]);
+  llPntr* data = load((char*)argv[1]);
 
   //printPntrList(*data);
 
