@@ -62,10 +62,6 @@ int main(int argc,char* argv){
     charHead = &cElement0;
   }
 
-
-  char c = cListToString(*((llChar*)(*((llPntr*)((*pHead).next)).data)));;
-  printf("cListToString(*((llChar*)(*((llPntr*)((*pHead).next)).data))); - %c",c );
-
   printf("elements - ");
 
   printPntrList(*pHead);
