@@ -30,6 +30,8 @@ int cListToInt(llChar list);//seems to work
 void swapPntr(llPntr* x, llPntr* y);//Needs to be tested (4)//this just probably works
 
 llPntr getPntr(llPntr data, int x);//works, note 0 equals the first element
+llPntr* getPntrAdd(llPntr data, int x);
+
 
 int intComp(void* p, void* q);//seems to work
 int strComp(void* p, void* q); //seems to work
@@ -301,6 +303,11 @@ llPntr getPntr(llPntr data, int x){
     current = *current.next;
   }
   return current;
+}
+
+llPntr* getPntrAdd(llPntr data, int x){
+  llPntr temp = getPntr(data,x-1);;
+  return temp.next;
 }
 
 //intComp() return values:
