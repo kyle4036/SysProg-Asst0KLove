@@ -85,8 +85,8 @@ int main(int argc,char* argv[]){
   printPntrList(*pHead);
 
   void* temp = element3.data;
-  *element3.data = *element6.data;
-  *element6.data = temp;
+  element3.data = element6.data;
+  element6.data = temp;
 
   //Doing this thing
 
