@@ -104,3 +104,65 @@ to make sure the pointer functions worked we ran the code following code to test
 
   ----------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------
+
+  the issue with the swapPntr function was a long and grueling task. many hours passed by
+  were slaved away at documenting, debugging and looking for explanations as to why
+  data wasn't properly being moved. finally after a long fought battle between the compiler
+  and the human, The winner stood higher, triumphant over his kill, prepared to conquor
+  another day.
+  ----------------------------------------------------------------------------------
+  //Testing Code
+  //
+
+  llChar* charHead;
+  llChar cElement0;
+  cElement0.data = '\0';
+  cElement0.next = NULL;
+  charHead = &cElement0;
+
+  llPntr* pHead;
+  llPntr pElement0;
+  pElement0.data = NULL;
+  pElement0.data = NULL;
+  pHead = &pElement0;
+  //
+
+
+  int i;
+  for(i = 0;i < 10;i++){
+    pushChar(i+'a', &charHead);
+    pushPntr(charHead, &pHead);
+    charHead = &cElement0;
+  }
+
+  printf("elements - \n");
+  printPntrList(*pHead);
+
+  //test stuff here
+
+  //printf("address of the 3rd llChar - %0x\n",getPntr(*pHead, 3));
+  llPntr* element3 = getPntrAdd(*pHead,3);
+  llPntr* element6 = getPntrAdd(*pHead,6);
+  printf("*element 3 - %0x \n*element 6 - %0x \n", element3,element6);
+
+  swapPntr(element3, element6);
+  printf("elements after first swap- \n");
+  printPntrList(*pHead);
+
+  /*void* temp = element3.data;
+  element3.data = element6.data;
+  element6.data = temp;*/
+
+  //(*element3).data = &cElement0;
+
+  //Doing this thing
+
+  printf("elements after second swap- \n");
+  printPntrList(*pHead);
+  //End of testing Code
+  ----------------------------------------------------------------------------------
+  the pass by reference wasn't properly implemented, so data wouldn't go through to the
+  main list
+
+  ----------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------
