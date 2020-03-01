@@ -38,7 +38,6 @@ int main(int argc,char* argv){
   //freePntrList(data);
 
   //Testing Code
-  //printf("echo");
   ///*
   llChar* charHead;
   llChar cElement0;
@@ -59,7 +58,9 @@ int main(int argc,char* argv){
     pushChar(i+'a', &charHead);
     pushPntr(charHead, &pHead);
     printf("cList %d - %s\n",i,cListToString(*charHead));
+    printf("printCharList()");
     printCharList(*charHead);
+    printf("current pntr list\n");
     printPntrList(*pHead);
     charHead = &cElement0;
   }
