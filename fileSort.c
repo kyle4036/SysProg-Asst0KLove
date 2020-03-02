@@ -7,6 +7,9 @@
 #include <fcntl.h>
 #include <errno.h>
 
+#define LESSTHAN 1
+#define GREATERTHAN 2
+
 //linked lists for characters and pointers
 typedef struct llChar_{char data; struct llChar_* next;} llChar;
 typedef struct llPntr_{void* data; struct llPntr_* next;} llPntr;
@@ -426,7 +429,7 @@ int quickSort(void* toSort, int (*comparator)(void*, void*)){
   llPntr* temp = pivot.next;
 
   if(pivot.next==NULL){
-    //greatest value, can return
+    //last value, can return
     return 0;
   }
 
@@ -442,5 +445,11 @@ int quickSort(void* toSort, int (*comparator)(void*, void*)){
 }
 
 void qsPartition(void* toSort,int (*comparator)(void*, void*)){
+  llPntr* pivot = toSort;
+  llPntr* current = *pivot.next;
+  while(pivot.next != NULL){
+    if(comparator(pivot,current) == GREATERTHAN){
 
+    }
+  }
 }
