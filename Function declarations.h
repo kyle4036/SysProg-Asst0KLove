@@ -28,7 +28,7 @@ llChar getCList(llPntr x);
 llPntr getLastP(llPntr current);
 llPntr* getLastPAdd(llPntr current);
 char* pListToString(llPntr list, int index);
-void* setData(llChar);
+void* setData(llChar x);
 
 int intComp(void* p, void* q);//seems to work
 int strComp(void* p, void* q); //seems to work

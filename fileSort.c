@@ -40,7 +40,7 @@ llChar getCList(llPntr x);
 llPntr getLastP(llPntr current);
 llPntr* getLastPAdd(llPntr current);
 char* pListToString(llPntr list, int index);
-void* setData(llChar);
+void* setData(llChar x);
 
 
 int intComp(void* p, void* q);//seems to work
@@ -328,8 +328,19 @@ llPntr* getPntrAdd(llPntr data, int x){
   llPntr temp = getPntr(data,x-1);;
   return temp.next;
 }
-void* setData(llChar){
-  
+
+//remember to free this data
+void* setData(llChar x){
+  if(isdigit(x.data){
+    int* a = malloc(sizeof(int));
+    *a = cListToInt(x);
+    return a;
+  }
+  else if(isalpha(x.data)){
+    char* a = malloc(sizeof(char));
+    *a = cListToString(x);
+    return a;
+  }
 }
 
 char* getCurrentString(llPntr* node){
