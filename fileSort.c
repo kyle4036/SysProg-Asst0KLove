@@ -67,7 +67,7 @@ int main(int argc,char* argv[]){
 
   //Insert sorting functions here
 
-  freePntrList(data);
+  //freePntrList(data);
 
   //Testing Code
 
