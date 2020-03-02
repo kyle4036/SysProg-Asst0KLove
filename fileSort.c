@@ -42,7 +42,7 @@ llPntr* getLastPAdd(llPntr current);
 char* pListToString(llPntr list, int index);
 void* setData(llChar x);
 
-
+void orderedInsert(llPntr** head, llPntr* newNode, int (*comparator) (void*, void*));
 int intComp(void* p, void* q);//seems to work
 int strComp(void* p, void* q); //seems to work
 
@@ -357,6 +357,20 @@ char* getCurrentString(llPntr* node){
   printf("crnt String: %s\n", str);
   return str;
 }
+void orderedInsert(llPntr** head, llPntr* newNode, int (*comparator)(void*, void*)){
+  llPntr* crnt;
+  if(*head == NULL || comparator(getCurrentString(*head), getCurrentString(newNode)) == 2){
+    newNode->next = *head;
+    *head = newNode;
+  }else{
+    crnt = *head;
+    while(crnt->next != NULL && comparator(getCurrentString(crnt->next), getCurrentString(newNode)) == 1){
+      crnt = crnt->next;
+    }
+    newNode->next = crnt->next;
+    crnt->next = newNode;
+  }
+}
 
 //intComp() return values:
   // 0 -- values are equal
@@ -414,37 +428,31 @@ int strComp(void* p, void* q){
 int insertionSort(void* toSort, int (*comparator)(void*, void*)){
   printf("--- IN insertionSort() -----\n");
 
-    llPntr *resList = NULL;
-    llPntr *head = (llPntr*) toSort;
-    llPntr* crnt = head;
-    //char* str = getCurrentString(crnt);
+  llPntr *resList = NULL;
+  llPntr *head = (llPntr*) toSort;
+  llPntr* crnt = head;
+  //char* str = getCurrentString(crnt);
 
-    while(crnt != NULL){
-      llPntr* next = crnt->next;
+  while(crnt != NULL){
+    llPntr* next = crnt->next;
 
-      //INSERT
-      //NOTE: If comparator value == 2 then swap
-      llPntr* ptr = next;
 
-      while(ptr != NULL && comparator(getCurrentString(crnt), getCurrentString(ptr)) == 1){
-        char* str = getCurrentString(ptr);
-        printf("ptr->next (%s) ...\n", str);
-        ptr = ptr->next;
-      }
+    //INSERT
+    //NOTE: If comparator value == 2 then swap
+    orderedInsert(&resList, crnt, comparator);
 
-      //crnt->next = ptr->next;
-      //ptr->next = crnt;
+    //END INSERT
+    crnt = next;
+  }
 
-      //END INSERT
-      crnt = next;
-    }
+  head = resList;
 
-    toSort = head;
+  //printPntrList(*crnt);
 
-    //printPntrList(*crnt);
+  printf("---- END insertionSort() ------\n");
 
-    printf("---- END insertionSort() ------\n");
-    return 0;
+  return 0;
+}
 }
 
 int quickSort(void* toSort, int (*comparator)(void*, void*)){
