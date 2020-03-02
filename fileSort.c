@@ -396,7 +396,7 @@ int strComp(void* p, void* q){
   int i;
   for(i = 0; str1[i] == str2[i] && str1[i] != '\0'; i++){}
 
-  printf("char1: %c\tchar2: %c\n", str1[i], str2[i]);
+  //printf("char1: %c\tchar2: %c\n", str1[i], str2[i]);
 
   if(str1[i] > str2[i]){// Second string is superior
     return 2;
