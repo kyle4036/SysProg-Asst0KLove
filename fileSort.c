@@ -447,8 +447,8 @@ int quickSort(void* toSort, int (*comparator)(void*, void*)){
 void qsPartition(void* toSort,int (*comparator)(void*, void*)){
   llPntr* pivot = toSort;
   llPntr* current = *pivot.next;
-  while(pivot.next != NULL){
-    if(comparator(pivot,current) == GREATERTHAN){
+  while(*pivot.next != NULL){
+    if(comparator(*pivot,*current) == GREATERTHAN){
 
     }
   }
