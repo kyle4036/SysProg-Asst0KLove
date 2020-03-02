@@ -225,8 +225,10 @@ void freePntrList(llPntr* data){
   llPntr* temp = current;
   do{
     current = (*current).next;
-    freeCharList( (llChar*)(*temp).data );
-    free(temp);
+    if((*temp).data != NULL);{
+      freeCharList( (llChar*)(*temp).data );
+      free(temp);
+    }
     temp = current;
   }while((*current).next != NULL);
 }
