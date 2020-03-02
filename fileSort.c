@@ -331,9 +331,9 @@ int intComp(void* p, void* q){
   if(res == 0){ //Values are the same
     return 0;
   }else if(res > 0){// first value is larger
-    return 1;
-  }else if(res < 0){// Second value is larger
     return 2;
+  }else if(res < 0){// Second value is larger
+    return 1;
   }
 
   return -1; //If something went wrong
@@ -371,24 +371,39 @@ int strComp(void* p, void* q){
 }
 
 int insertionSort(void* toSort, int (*comparator)(void*, void*)){
+  printf("--- IN insertionSort() -----\n");
 
-  /*int* x;
-  int* y;
-  *x = 4;
-  *y = 2;
-  int res = comparator(x, y);
-  printf("%d\n",res);
-  */
-  //int res = comparator(nums[1], nums[0]);
+    llPntr *resList = NULL;
+    llPntr *head = (llPntr*) toSort;
+    llPntr* crnt = head;
+    //char* str = getCurrentString(crnt);
 
-  /*char* str1 = "Hello";
-  char* str2 = "Hew";
+    while(crnt != NULL){
+      llPntr* next = crnt->next;
 
-  int res = comparator(str2, str1);
+      //INSERT
+      //NOTE: If comparator value == 2 then swap
+      llPntr* ptr = next;
 
-  printf("strComp() ==> %d\n", res);*/
+      while(ptr != NULL && comparator(getCurrentString(crnt), getCurrentString(ptr)) == 1){
+        char* str = getCurrentString(ptr);
+        printf("ptr->next (%s) ...\n", str);
+        ptr = ptr->next;
+      }
 
-  return 0;
+      //crnt->next = ptr->next;
+      //ptr->next = crnt;
+
+      //END INSERT
+      crnt = next;
+    }
+
+    toSort = head;
+
+    //printPntrList(*crnt);
+
+    printf("---- END insertionSort() ------\n");
+    return 0;
 }
 
 int quickSort(void* toSort, int (*comparator)(void*, void*)){
