@@ -472,7 +472,7 @@ void qsPartition(void* toSort,int (*comparator)(void*, void*)){
   void* x;
   void* y;
 
-  while((*pivot).next != NULL){
+  while((*current).next != NULL){
     a = getCList(*pivot);
     b = getCList(*current);
     x = setData(a);
