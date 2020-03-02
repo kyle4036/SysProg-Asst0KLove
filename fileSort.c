@@ -34,6 +34,8 @@ llPntr getPntr(llPntr data, int x);//works, note 0 equals the first element
 llPntr* getPntrAdd(llPntr data, int x);
 llPntr getNextP(llPntr x);
 llChar getCList(llPntr x);
+llPntr getLastP(llPntr current);
+llPntr getLastPAdd(llPntr current);
 char* pListToString(llPntr list, int index);
 
 
