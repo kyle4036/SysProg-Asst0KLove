@@ -331,7 +331,7 @@ llPntr* getPntrAdd(llPntr data, int x){
 
 //remember to free this data
 void* setData(llChar x){
-  if(isdigit(x.data){
+  if(isdigit(x.data)){
     int* a = malloc(sizeof(int));
     *a = cListToInt(x);
     return a;
@@ -463,7 +463,8 @@ void qsPartition(void* toSort,int (*comparator)(void*, void*)){
   llPntr* pivot = toSort;
   llPntr* current = (*pivot).next;
   llChar a, b;
-  void* x, y;
+  void* x;
+  void* y;
 
   while((*pivot).next != NULL){
     a = getCList(*pivot);
