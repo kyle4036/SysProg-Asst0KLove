@@ -42,7 +42,7 @@ int strComp(void* p, void* q); //seems to work
 
 int insertionSort(void* toSort, int (*comparator)(void*, void*));
 int quickSort(void* toSort, int (*comparator)(void*, void*));
-void qsPartition(void* toSort,int (*comparator)(void*, void*))
+void qsPartition(void* toSort,int (*comparator)(void*, void*));
 
 char* getCurrentString(llPntr* node);
 
@@ -419,8 +419,8 @@ int quickSort(void* toSort, int (*comparator)(void*, void*)){
   quickSort(pivot.next,comparator); //sort all the elements after the pivot
 
   pivot.next = NULL;
-  quickSort(&pivot,comparator);//temporarily breaks of elements from the pivot
-                              //
+  quickSort(&pivot,comparator);//temporarily breaks off elements after the pivot
+                              //so that it can sort the first half of the elements
   pivot.next = temp;
 
   return 0;
