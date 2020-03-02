@@ -453,7 +453,7 @@ int insertionSort(void* toSort, int (*comparator)(void*, void*)){
 
   return 0;
 }
-}
+
 
 int quickSort(void* toSort, int (*comparator)(void*, void*)){
   llPntr pivot = *(llPntr*)toSort;
