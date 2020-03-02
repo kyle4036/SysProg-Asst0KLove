@@ -20,6 +20,7 @@ void pushPntr(void* p, llPntr** head);//works
 
 void printCharList(llChar data);//works
 void printPntrList(llPntr data);//works
+llPntr* makeSmallPList();
 
 void freeCharList(llChar* data);//Needs to be tested (7)
 void freePntrList(llPntr* data);//Needs to be tested (8)
@@ -31,6 +32,9 @@ void swapPntr(llPntr* x, llPntr* y);//Needs to be tested (4)//this just probably
 
 llPntr getPntr(llPntr data, int x);//works, note 0 equals the first element
 llPntr* getPntrAdd(llPntr data, int x);
+llPntr getNextP(llPntr x);
+llChar getCList(llPntr x);
+char* pListToString(llPntr list, int index);
 
 
 int intComp(void* p, void* q);//seems to work
@@ -38,6 +42,8 @@ int strComp(void* p, void* q); //seems to work
 
 int insertionSort(void* toSort, int (*comparator)(void*, void*));
 int quickSort(void* toSort, int (*comparator)(void*, void*));
+
+char* getCurrentString(llPntr* node);
 
 int main(int argc,char* argv[]){
 
@@ -298,6 +304,13 @@ llPntr getPntr(llPntr data, int x){
 llPntr* getPntrAdd(llPntr data, int x){
   llPntr temp = getPntr(data,x-1);;
   return temp.next;
+}
+
+char* getCurrentString(llPntr* node){
+  llChar* strpntr = node->data;
+  char* str = cListToString(*strpntr);
+  printf("crnt String: %s\n", str);
+  return str;
 }
 
 //intComp() return values:
