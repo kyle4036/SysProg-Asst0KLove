@@ -135,9 +135,9 @@ llPntr* makeSmallPList(){
 
   llPntr* pHead;
   llPntr* pElement0 = malloc(sizeof(llPntr));
-  pElement0.data = NULL;
-  pElement0.data = NULL;
-  pHead = &pElement0;
+  pElement0->data = NULL;
+  pElement0->data = NULL;
+  pHead = pElement0;
   //
 
 
@@ -145,7 +145,7 @@ llPntr* makeSmallPList(){
   for(i = 0;i < 10;i++){
     pushChar(i+'a', &charHead);
     pushPntr(charHead, &pHead);
-    charHead = &cElement0;
+    charHead = cElement0;
   }
   return pHead;
 }
