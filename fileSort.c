@@ -463,12 +463,15 @@ void qsPartition(void* toSort,int (*comparator)(void*, void*)){
   llPntr* pivot = toSort;
   llPntr* current = (*pivot).next;
   llChar a, b;
+  void* x, y;
 
   while((*pivot).next != NULL){
     a = getCList(*pivot);
     b = getCList(*current);
+    x = setData(a);
+    y = setData(b);
 
-    if(comparator(*pivot,*current) == GREATERTHAN){
+    if(comparator(x,y) == GREATERTHAN){
 
     }
   }
