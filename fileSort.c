@@ -282,8 +282,7 @@ llPntr getLastP(llPntr current){
   return current;
 }
 llPntr* getLastPAdd(llPntr current){
-  llPntr* temp;
-  while(((llPntr*)current.next).next != NULL){
+  while(getNextP(current).next != NULL){
     current = *current.next;
   }
   return current.next;
