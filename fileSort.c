@@ -273,6 +273,20 @@ llPntr getNextP(llPntr x){
   return *(llPntr*)x.next;
 }
 
+llPntr getLastP(llPntr current){
+  while(current.next != NULL){
+    current = *current.next;
+  }
+  return current;
+}
+llPntr* getLastPAdd(llPntr current){
+  llPntr* temp;
+  while(((llPntr*)current.next).next != NULL){
+    current = *current.next;
+  }
+  return current.next;
+}
+
 void printCharList(llChar data){
   char* cString = cListToString(data);
   printf("%s\n",cString);
