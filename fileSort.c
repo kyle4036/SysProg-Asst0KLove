@@ -391,8 +391,25 @@ int insertionSort(void* toSort, int (*comparator)(void*, void*)){
 }
 
 int quickSort(void* toSort, int (*comparator)(void*, void*)){
+  llPntr pivot = *toSort;
+  llPntr* temp = pivot.next;
 
+  if(pivot.next==NULL){
+    //greatest value, can return
+    return 0;
+  }
 
+  qsPartition(toSort,comparator);
+  quickSort(pivot.next,comparator) //sort all the elements after the pivot
+
+  pivot.next = NULL;
+  quickSort(&pivot,comparator);//temporarily breaks of elements from the pivot
+                              //
+  pivot.next = temp;
 
   return 0;
+}
+
+void qsPartition(void* toSort,int (*comparator)(void*, void*)){
+
 }
