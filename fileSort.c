@@ -483,5 +483,5 @@ void qsPartition(void* toSort,int (*comparator)(void*, void*)){
       current = (*current).next;
     }
   }
-  swapPntr(toSort,getLastPAdd(*toSort));
+  swapPntr((llPntr*)toSort,getLastPAdd(*(llPntr*)toSort));
 }
