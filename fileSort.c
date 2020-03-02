@@ -116,6 +116,9 @@ llPntr* load(const char* pathname){
       pushChar(charTemp, &cHead);
     }
   }
+  if(cHead != charEnd){//makes it so the last element gets appended
+    pushPntr(cHead, &pHead);
+  }
 
 
   close(fd);
