@@ -480,7 +480,7 @@ void qsPartition(void* toSort,int (*comparator)(void*, void*)){
 
     if(comparator(x,y) == GREATERTHAN){
       swapPntr(pivot,current);
-      current = *current.next;
+      current = (*current).next;
     }
   }
   swapPntr(toSort,getLastPAdd(*toSort));
