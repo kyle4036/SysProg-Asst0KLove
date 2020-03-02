@@ -35,7 +35,7 @@ llPntr* getPntrAdd(llPntr data, int x);
 llPntr getNextP(llPntr x);
 llChar getCList(llPntr x);
 llPntr getLastP(llPntr current);
-llPntr getLastPAdd(llPntr current);
+llPntr* getLastPAdd(llPntr current);
 char* pListToString(llPntr list, int index);
 
 
