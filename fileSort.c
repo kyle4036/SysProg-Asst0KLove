@@ -59,6 +59,12 @@ int main(int argc,char* argv[]){
   llPntr* data = load((char*)argv[1]);
   printPntrList(*data);
 
+  quickSort(data, strComp);
+
+  printf("sorting of the data - \n");
+
+  printPntrList(*data);
+
   //Insert sorting functions here
 
   freePntrList(data);
@@ -473,7 +479,9 @@ void qsPartition(void* toSort,int (*comparator)(void*, void*)){
     y = setData(b);
 
     if(comparator(x,y) == GREATERTHAN){
-
+      swapPntr(pivot,current);
+      current = *current.next;
     }
   }
+  swapPntr(toSort,getLastPAdd(*toSort));
 }
