@@ -40,6 +40,7 @@ llChar getCList(llPntr x);
 llPntr getLastP(llPntr current);
 llPntr* getLastPAdd(llPntr current);
 char* pListToString(llPntr list, int index);
+void* setData(llChar);
 
 
 int intComp(void* p, void* q);//seems to work
@@ -327,6 +328,9 @@ llPntr* getPntrAdd(llPntr data, int x){
   llPntr temp = getPntr(data,x-1);;
   return temp.next;
 }
+void* setData(llChar){
+  
+}
 
 char* getCurrentString(llPntr* node){
   llChar* strpntr = node->data;
@@ -446,8 +450,13 @@ int quickSort(void* toSort, int (*comparator)(void*, void*)){
 
 void qsPartition(void* toSort,int (*comparator)(void*, void*)){
   llPntr* pivot = toSort;
-  llPntr* current = *pivot.next;
-  while(*pivot.next != NULL){
+  llPntr* current = (*pivot).next;
+  llChar a, b;
+
+  while((*pivot).next != NULL){
+    a = getCList(*pivot);
+    b = getCList(*current);
+
     if(comparator(*pivot,*current) == GREATERTHAN){
 
     }
