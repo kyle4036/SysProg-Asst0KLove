@@ -387,7 +387,7 @@ int strComp(void* p, void* q){
   char* str1 = (char*) p;
   char* str2 = (char*) q;
 
-  printf("String1: %s\nString2: %s\n", str1, str2);
+  //printf("String1: %s\nString2: %s\n", str1, str2);
 
   if(str1[0] == '\0' || str2[0] == '\0'){
     printf("*WARNING* -- One or more strings is empty. May have unexpected results!\n");
