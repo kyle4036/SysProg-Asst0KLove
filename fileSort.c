@@ -54,29 +54,8 @@ int main(int argc,char* argv[]){
 
   //commented out code can be used to make a small list
   /*
-  llChar* charHead;
-  llChar cElement0;
-  cElement0.data = '\0';
-  cElement0.next = NULL;
-  charHead = &cElement0;
-
   llPntr* pHead;
-  llPntr pElement0;
-  pElement0.data = NULL;
-  pElement0.data = NULL;
-  pHead = &pElement0;
-  //
-
-
-  int i;
-  for(i = 0;i < 10;i++){
-    pushChar(i+'a', &charHead);
-    pushPntr(charHead, &pHead);
-    charHead = &cElement0;
-  }
-
-  printf("elements - \n");
-  printPntrList(*pHead);
+  pHead = makeSmallPList();
   */
 
   //End of testing Code
@@ -134,6 +113,34 @@ llPntr* load(const char* pathname){
 
 
   close(fd);
+  return pHead;
+}
+
+//makeSmallPList()
+//usefull for debugging and testing
+//makes a list of letters as a llPntr from a - j in
+//reverse order
+llPntr* makeSmallPList(){
+  llChar* charHead;
+  llChar* cElement0 = malloc(sizeof(llChar));
+  cElement0->data = '\0';
+  cElement0->next = NULL;
+  charHead = cElement0;
+
+  llPntr* pHead;
+  llPntr* pElement0 = malloc(sizeof(llPntr));
+  pElement0.data = NULL;
+  pElement0.data = NULL;
+  pHead = &pElement0;
+  //
+
+
+  int i;
+  for(i = 0;i < 10;i++){
+    pushChar(i+'a', &charHead);
+    pushPntr(charHead, &pHead);
+    charHead = &cElement0;
+  }
   return pHead;
 }
 
