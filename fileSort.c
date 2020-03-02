@@ -214,7 +214,7 @@ void freeCharList(llChar* data){
     current = (*current).next;
     free(temp);
     temp = current;
-  }while((*current) != NULL);
+  }while((*current).next != NULL);
 
   //note: the last data object (charEnd) was instantiated at compile time,
   //so we never need to touch it
